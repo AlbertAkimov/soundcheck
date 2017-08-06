@@ -98,7 +98,7 @@
 <form:form action="${addAction}" commandName="band">
 
     <table>
-        <c:if test="${!empty band}">
+        <c:if test="${!empty band.nameBand}">
             <tr>
                 <td>
                     <form:label path="id">
