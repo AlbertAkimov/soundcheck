@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,4 +36,30 @@ public class BandController {
         model.addAttribute("listBand", this.service.listBand());
         return "bands";
     }
+
+    @RequestMapping(value = "/bands/add", method = RequestMethod.POST)
+    public String addBand(@ModelAttribute(value = "band") Band band) {
+        if(band.getId() == 0)
+            this.service.addBand(band);
+        else
+            this.service.updateBand(band);
+
+        return "redirect:/bands";
+    }
+
+    @RequestMapping(value = "/remove/{id}")
+    public String removeBand(@PathVariable("id") int id) {
+        this.service.removeBand(id);
+
+        return "redirect:/bands";
+    }
+
+    @RequestMapping(value = "edit/{id}")
+    public String editBand(@PathVariable("id") int id, Model model) {
+        model.addAttribute("band", this.service.getBandById(id));
+        model.addAttribute("listBand", this.service.listBand());
+
+        return "bands";
+    }
+
 }

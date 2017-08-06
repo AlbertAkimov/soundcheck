@@ -5,7 +5,6 @@
   Time: 10:02 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -61,22 +60,89 @@
 
 <h1>Band list</h1>
 
-<c:if test="${! empty listBand}">
+<c:if test="${!empty listBand}">
     <table class="tg">
         <tr>
             <th width="60">ID</th>
+            <th width="100">DATA</th>
             <th width="120">NAME GROUP</th>
+
         </tr>
 
         <c:forEach items="${listBand}" var="band">
 
             <tr>
                 <td>${band.id}</td>
+                <td>${band.dates}</td>
                 <td>${band.nameGroup}</td>
+                <td><a href="<c:url value='/edit/${band.id}'/>">Edit</a></td>
+                <td><a href="<c:url value='/remove/${band.id}'/>">Delete</a></td>
             </tr>
 
         </c:forEach>
     </table>
 </c:if>
+
+
+<h2>Register group</h2>
+
+<c:url var="addAction" value="/bands/add"/>
+
+<form:form action="${addAction}" commandName="band">
+
+    <table>
+        <c:if test="${!empty band.nameGroup}">
+            <tr>
+                <td>
+                    <form:label path="id">
+                        <spring:message text="ID"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="id" readonly="true" size="8" disabled="true"/>
+                    <form:hidden path="id"/>
+                </td>
+            </tr>
+        </c:if>
+
+        <tr>
+            <td>
+                <form:label path="dates">
+                    <spring:message text="Date"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="dates"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="nameGroup">
+                    <spring:message text="Name Group"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="nameGroup"/>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <c:if test="${!empty band.nameGroup}">
+                    <input type="submit"
+                           value="<spring:message text="Edit Band"/>"/>
+                </c:if>
+                <c:if test="${empty band.nameGroup}">
+                    <input type="submit"
+                           value="<spring:message text="Add Band"/>"/>
+                </c:if>
+            </td>
+        </tr>
+    </table>
+
+</form:form>
+
 </body>
 </html>

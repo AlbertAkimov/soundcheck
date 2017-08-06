@@ -1,8 +1,9 @@
 package net.space.model;
 
-import org.hibernate.annotations.Columns;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @Author A.Albert
@@ -21,10 +22,13 @@ public class Band {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "data_group")
+    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @Temporal(TemporalType.DATE)
+    private Date dates;
+
     @Column(name = "name_group")
     private String nameGroup;
-
-    public Band() {}
 
     public int getId() {
         return id;
@@ -34,19 +38,19 @@ public class Band {
         this.id = id;
     }
 
+    public Date getDates() {
+        return dates;
+    }
+
+    public void setDates(Date dates) {
+        this.dates = dates;
+    }
+
     public String getNameGroup() {
         return nameGroup;
     }
 
     public void setNameGroup(String nameGroup) {
         this.nameGroup = nameGroup;
-    }
-
-    @Override
-    public String toString() {
-        return "Band{" +
-                "id=" + id +
-                ", nameGroup='" + nameGroup + '\'' +
-                '}';
     }
 }
