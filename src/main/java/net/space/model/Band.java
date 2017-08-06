@@ -18,32 +18,19 @@ import java.util.Date;
 public class Band {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "data_group")
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dates;
+    private Integer id;
 
     @Column(name = "name_group")
     private String nameGroup;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Date getDates() {
-        return dates;
-    }
-
-    public void setDates(Date dates) {
-        this.dates = dates;
     }
 
     public String getNameGroup() {

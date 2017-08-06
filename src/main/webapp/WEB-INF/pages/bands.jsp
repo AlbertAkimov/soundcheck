@@ -64,7 +64,6 @@
     <table class="tg">
         <tr>
             <th width="60">ID</th>
-            <th width="100">DATA</th>
             <th width="120">NAME GROUP</th>
 
         </tr>
@@ -73,7 +72,6 @@
 
             <tr>
                 <td>${band.id}</td>
-                <td>${band.dates}</td>
                 <td>${band.nameGroup}</td>
                 <td><a href="<c:url value='/edit/${band.id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/remove/${band.id}'/>">Delete</a></td>
@@ -91,7 +89,7 @@
 <form:form action="${addAction}" commandName="band">
 
     <table>
-        <c:if test="${!empty band.nameGroup}">
+        <c:if test="${!empty band}">
             <tr>
                 <td>
                     <form:label path="id">
@@ -104,17 +102,6 @@
                 </td>
             </tr>
         </c:if>
-
-        <tr>
-            <td>
-                <form:label path="dates">
-                    <spring:message text="Date"/>
-                </form:label>
-            </td>
-            <td>
-                <form:input path="dates"/>
-            </td>
-        </tr>
 
         <tr>
             <td>

@@ -58,7 +58,7 @@ public class BandDaoImpl implements BandDao {
     @Override
     public Band getBandById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Band band = (Band) session.load(Band.class, id);
+        Band band = (Band) session.get(Band.class, id);
 
         LOGGER.info("Band successfully loaded");
         return band;
