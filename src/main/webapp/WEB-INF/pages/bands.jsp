@@ -64,15 +64,24 @@
     <table class="tg">
         <tr>
             <th width="60">ID</th>
-            <th width="120">NAME GROUP</th>
-
+            <th width="100">DATE</th>
+            <th width="170">NAME OF BAND</th>
+            <th width="100">START TIME</th>
+            <th width="100">END TIME</th>
+            <th width="50">COUNT HOURS</th>
+            <th width="170">COMMENT</th>
         </tr>
 
         <c:forEach items="${listBand}" var="band">
 
             <tr>
                 <td>${band.id}</td>
-                <td>${band.nameGroup}</td>
+                <td>${band.dataBand}</td>
+                <td>${band.nameBand}</td>
+                <td>${band.startTime}</td>
+                <td>${band.endTime}</td>
+                <td>${band.countHours}</td>
+                <td>${band.comment}</td>
                 <td><a href="<c:url value='/edit/${band.id}'/>">Edit</a></td>
                 <td><a href="<c:url value='/remove/${band.id}'/>">Delete</a></td>
             </tr>
@@ -105,23 +114,78 @@
 
         <tr>
             <td>
-                <form:label path="nameGroup">
+                <form:label path="dataBand">
+                    <spring:message text="DATA"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="dataBand"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="nameBand">
                     <spring:message text="Name Group"/>
                 </form:label>
             </td>
             <td>
-                <form:input path="nameGroup"/>
+                <form:input path="nameBand"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="startTime">
+                    <spring:message text="Start Time"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="startTime"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="endTime">
+                    <spring:message text="End Time"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="endTime"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="countHours">
+                    <spring:message text="Count Hours"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="countHours"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <form:label path="comment">
+                    <spring:message text="Comment"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="comment"/>
             </td>
         </tr>
 
 
         <tr>
             <td colspan="2">
-                <c:if test="${!empty band.nameGroup}">
+                <c:if test="${!empty band.nameBand}">
                     <input type="submit"
                            value="<spring:message text="Edit Band"/>"/>
                 </c:if>
-                <c:if test="${empty band.nameGroup}">
+                <c:if test="${empty band.nameBand}">
                     <input type="submit"
                            value="<spring:message text="Add Band"/>"/>
                 </c:if>
