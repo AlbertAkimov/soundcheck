@@ -21,9 +21,9 @@ public class Band {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
-    @Column(name = "DATE_BAND")
+    @Column(name = "DATE_BAND", columnDefinition = "DATA")
     @DateTimeFormat(pattern = "dd-mm-yyyy")
     @Temporal(TemporalType.DATE)
     private Date dataBand;
@@ -31,10 +31,10 @@ public class Band {
     @Column(name = "NAME_BAND")
     private String nameBand;
 
-    @Column(name = "START_TIME")
+    @Column(name = "START_TIME", columnDefinition = "TIME")
     private Time startTime;
 
-    @Column(name = "END_TIME")
+    @Column(name = "END_TIME", columnDefinition = "TIME")
     private Time endTime;
 
     @Column(name = "COUNT_HOURS")
@@ -43,11 +43,11 @@ public class Band {
     @Column(name = "COMMENT")
     private String comment;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -67,7 +67,7 @@ public class Band {
         this.nameBand = nameBand;
     }
 
-    public Time getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
