@@ -122,7 +122,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="dataBand" id="datetimepicker"/>
+                <form:input path="dataBand" id="dataBand"/>
             </td>
         </tr>
 
@@ -144,7 +144,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="startTime"/>
+                <form:input path="startTime" id="startTime"/>
             </td>
         </tr>
 
@@ -155,7 +155,7 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="endTime"/>
+                <form:input path="endTime" id="endTime"/>
             </td>
         </tr>
 
@@ -197,13 +197,38 @@
     </table>
 
 </form:form>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
 <script src="../../resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script>
-    $('#datetimepicker').datetimepicker();
+    $('#startTime').datetimepicker({
+        datepicker:false,
+        format:'H:i'
+    });
+    $('#endTime').datetimepicker({
+        datepicker:false,
+        format:'H:i'
+    });
+
+    jQuery.datetimepicker.setLocale('de');
+
+    jQuery('#dataBand').datetimepicker({
+        i18n:{
+            de:{
+                months:[
+                    'Januar','Februar','März','April',
+                    'Mai','Juni','Juli','August',
+                    'September','Oktober','November','Dezember',
+                ],
+                dayOfWeek:[
+                    "So.", "Mo", "Di", "Mi",
+                    "Do", "Fr", "Sa.",
+                ]
+            }
+        },
+        timepicker:false,
+        format:'d-m-Y'
+    });
 </script>
 </body>
 </html>

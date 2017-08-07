@@ -1,9 +1,6 @@
 package net.space.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -23,19 +20,18 @@ public class Band {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "DATE_BAND", columnDefinition = "DATA")
-    @DateTimeFormat(pattern = "dd-mm-yyyy")
+    @Column(name = "DATE_BAND")
     @Temporal(TemporalType.DATE)
     private Date dataBand;
 
     @Column(name = "NAME_BAND")
     private String nameBand;
 
-    @Column(name = "START_TIME", columnDefinition = "TIME")
-    private Time startTime;
+    @Column(name = "START_TIME")
+    private String startTime;
 
-    @Column(name = "END_TIME", columnDefinition = "TIME")
-    private Time endTime;
+    @Column(name = "END_TIME")
+    private String endTime;
 
     @Column(name = "COUNT_HOURS")
     private int countHours;
@@ -67,19 +63,19 @@ public class Band {
         this.nameBand = nameBand;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Time startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Time getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Time endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
@@ -105,8 +101,8 @@ public class Band {
                 "id=" + id +
                 ", dataBand=" + dataBand +
                 ", nameBand='" + nameBand + '\'' +
-                ", startTime=" + startTime +
-                ", endTime=" + endTime +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 ", countHours=" + countHours +
                 ", comment='" + comment + '\'' +
                 '}';
