@@ -26,31 +26,30 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="/resources/soundcheck/css/normalize.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/main.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/sonorama.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/responsive.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/isotope.css">
-    <link rel="stylesheet" href="/resources/soundcheck/js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/normalize.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/main.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/sonorama.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/responsive.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/isotope.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/js/fancybox/jquery.fancybox.css">
 
     <!--  Color Picker & Styles -->
-    <link href="/resources/soundcheck/css/color-picker.css" rel="stylesheet">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/light.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/green.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/yellow.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/turquoise.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/red.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/orange.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/purple.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/blue.css">
-    <link rel="stylesheet" href="/resources/soundcheck/css/color/black.css">
+    <link href="../../resources/soundcheck/css/color-picker.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/light.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/green.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/yellow.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/turquoise.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/red.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/orange.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/purple.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/blue.css">
+    <link rel="stylesheet" href="../../resources/soundcheck/css/color/black.css">
 
     <!-- Scripts JS -->
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../../resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
 
     <!-- links for datepicker -->
     <link rel="stylesheet" type="text/css" href="../../resources/datepicker/jquery.datetimepicker.css"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
     <script src="../../resources/datepicker/jquery.js"></script>
 
 </head>
@@ -61,7 +60,7 @@
 
 <div id="mask">
     <div class="loader">
-        <img src="/resources/soundcheck/img/icons/loading.gif" alt='loading'>
+        <img src="../../resources/soundcheck/img/icons/loading.gif" alt='loading'>
     </div>
 </div>
 
@@ -70,8 +69,8 @@
     <div class="pickerTitle">Style Switcher</div>
     <div class="pwrapper">
         <div class="pickersubTitle">Layout Selector</div>
-        <div class="light-version"><img title="" alt='img' src="/resources/soundcheck/img/icons/light.jpg"></div>
-        <div class="dark-version"><img title="" alt='img' src="/resources/soundcheck/img/icons/dark.jpg"></div>
+        <div class="light-version"><img title="" alt='img' src="../../resources/soundcheck/img/icons/light.jpg"></div>
+        <div class="dark-version"><img title="" alt='img' src="../../resources/soundcheck/img/icons/dark.jpg"></div>
         <div class="pickersubTitle"> Color scheme </div>
         <div class="picker-blue"></div>
         <div class="picker-black"></div>
@@ -120,9 +119,9 @@
 <section id="slides-1"> <!-- Slider -->
     <div class="overlay"></div>
     <div class="slides-container">
-        <img src="/resources/soundcheck/img/slider/slider-01.jpg" alt='img'>
-        <img src="/resources/soundcheck/img/slider/slider-02.jpg" alt='img'>
-        <img src="/resources/soundcheck/img/slider/slider-03.jpg" alt='img'>
+        <img src="../../resources/soundcheck/img/slider/slider-01.jpg" alt='img'>
+        <img src="../../resources/soundcheck/img/slider/slider-02.jpg" alt='img'>
+        <img src="../../resources/soundcheck/img/slider/slider-03.jpg" alt='img'>
     </div>
     <nav class="slides-navigation">
         <a href="#" class="next"></a>
@@ -135,7 +134,7 @@
         <div class="welcome logo">
             <div class="top-spacer one"></div>
             <div class="top-spacer two"></div>
-            <img src="/resources/soundcheck/img/slider/sonorama.png" alt='img' />
+            <img src="../../resources/soundcheck/img/slider/sonorama.png" alt='img' />
             <div class="spacer-box"></div>
             <ul>
                 <li class="t-current"><span>Sonorama</span> is a theme for music bands, deejays, singers and any artist related with the music industry that want to show his <span>talent and sounds</span> to the world.</li>
@@ -148,7 +147,7 @@
 <div class="full-wrapper">
     <div class="player-container"> <!-- Audio Player -->
         <div class="audio-player">
-            <audio preload="none" src="/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
+            <audio preload="none" src="../../resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
             <ol class="home-playlist">
                 <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
                 <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
@@ -174,7 +173,7 @@
                         <li class="start"></li>
                         <li id="news-01.html" class="last-news"> <!-- Type One Thumb on Top -->
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-05.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-05.jpg" alt='img' />
                             </div>
                             <div class="news-info">
                                 <h1>New Remix</h1>
@@ -189,12 +188,12 @@
                                 <div class="news-date">2013.08.10</div>
                             </div>
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-03.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-03.jpg" alt='img' />
                             </div>
                         </li><!-- end Type Two -->
                         <li id="news-03.html" class="last-news"> <!-- Type One Thumb on Top -->
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-06.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-06.jpg" alt='img' />
                             </div>
                             <div class="news-info">
                                 <h1>New Remix</h1>
@@ -209,13 +208,13 @@
                                 <div class="news-date">2013.08.10</div>
                             </div>
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-07.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-07.jpg" alt='img' />
                             </div>
                         </li><!-- end Type Two -->
 
                         <li id="news-05.html" class="last-news"> <!-- Type One Thumb on Top -->
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-01.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-01.jpg" alt='img' />
                             </div>
                             <div class="news-info">
                                 <h1>New Remix</h1>
@@ -230,12 +229,12 @@
                                 <div class="news-date">2013.08.10</div>
                             </div>
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-02.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-02.jpg" alt='img' />
                             </div>
                         </li><!-- end Type Two -->
                         <li id="news-07.html" class="last-news"> <!-- Type One Thumb on Top -->
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-03.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-03.jpg" alt='img' />
                             </div>
                             <div class="news-info">
                                 <h1>New Remix</h1>
@@ -250,7 +249,7 @@
                                 <div class="news-date">2013.08.10</div>
                             </div>
                             <div class="news-thumb">
-                                <img src="/resources/soundcheck/img/news/thumb-news-04.jpg" alt='img' />
+                                <img src="../../resources/soundcheck/img/news/thumb-news-04.jpg" alt='img' />
                             </div>
                         </li><!-- end Type Two -->
                         <li class="end"></li>
@@ -328,7 +327,7 @@
 
                 <li><!-- Disc #1 -->
                     <div class="disc-img open-disc" id="disc-01.html">
-                        <img src="/resources/soundcheck/img/discography/thumb-01.jpg" alt='img' />
+                        <img src="../../resources/soundcheck/img/discography/thumb-01.jpg" alt='img' />
                         <div class="overlay"></div>
                     </div>
                     <div class="disc-info">
@@ -340,7 +339,7 @@
 
                 <li><!-- Disc #2 -->
                     <div class="disc-img open-disc" id="disc-02.html">
-                        <img src="/resources/soundcheck/img/discography/thumb-02.jpg" alt='img' />
+                        <img src="../../resources/soundcheck/img/discography/thumb-02.jpg" alt='img' />
                         <div class="overlay"></div>
                     </div>
                     <div class="disc-info">
@@ -352,7 +351,7 @@
 
                 <li><!-- Disc #3 -->
                     <div class="disc-img open-disc" id="disc-03.html">
-                        <img src="/resources/soundcheck/img/discography/thumb-03.jpg" alt='img' />
+                        <img src="../../resources/soundcheck/img/discography/thumb-03.jpg" alt='img' />
                         <div class="overlay"></div>
                     </div>
                     <div class="disc-info">
@@ -393,8 +392,8 @@
             <section id="i-portfolio" class="clear">
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-01.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-01.jpg"> <!-- Set your gallery Group Name in rel="" field, ex: rel="group-one" -->
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-01.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-01.jpg"> <!-- Set your gallery Group Name in rel="" field, ex: rel="group-one" -->
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -402,7 +401,7 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-02.jpg" alt='img' />
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-02.jpg" alt='img' />
                     <a href="https://www.youtube.com/watch?v=WImWuxHbQCw" rel="" class="fancybox-media">
                         <div>
                             <span class="p-category video"></span>
@@ -411,8 +410,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-03.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-03.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-03.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-03.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -420,7 +419,7 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-04.jpg" alt='img' />
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-04.jpg" alt='img' />
                     <a href="http://vimeo.com/29577474" class="fancybox-media" rel="">
                         <div>
                             <span class="p-category video"></span>
@@ -429,8 +428,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-05.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-05.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-05.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-05.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -438,8 +437,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-06.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-06.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-06.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-06.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -447,7 +446,7 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-07.jpg" alt='img' />
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-07.jpg" alt='img' />
                     <a href="https://www.youtube.com/watch?v=WImWuxHbQCw" rel="" class="fancybox-media">
                         <div>
                             <span class="p-category video"></span>
@@ -456,7 +455,7 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-08.jpg" alt='img' />
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-08.jpg" alt='img' />
                     <a href="http://vimeo.com/29577474" class="fancybox-media" rel="">
                         <div>
                             <span class="p-category video"></span>
@@ -465,8 +464,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-09.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-09.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-09.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-09.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -474,8 +473,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-10.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-10.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-10.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-10.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -483,8 +482,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-11.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-11.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-11.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-11.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -492,8 +491,8 @@
                 </div>
 
                 <div class="ch-grid element">
-                    <img class="ch-item" src="/resources/soundcheck/img/gallery/thumb-12.jpg" alt='img' />
-                    <a class="fancybox img-lightbox" rel="" href="/resources/soundcheck/img/gallery/thumb-12.jpg">
+                    <img class="ch-item" src="../../resources/soundcheck/img/gallery/thumb-12.jpg" alt='img' />
+                    <a class="fancybox img-lightbox" rel="" href="../../resources/soundcheck/img/gallery/thumb-12.jpg">
                         <div>
                             <span class="p-category photo"></span>
                         </div>
@@ -582,25 +581,23 @@
 <!-- Scripts JS -->
 <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
-<script src="/resources/soundcheck/js/jquery-1.11.0.min.js"></script>
-<script src="/resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
-<script src="/resources/soundcheck/js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="/resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
-<script type="text/javascript" src="/resources/soundcheck/js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="/resources/soundcheck/js/jquery.nav.js"></script>
-<script src="/resources/soundcheck/js/news.js"></script>
-<script src="/resources/soundcheck/js/discography.js"></script>
-<script src="/resources/soundcheck/js/tweets.js"></script>
-<script src="/resources/soundcheck/js/jquery.scrolly.js"></script>
-<script src="/resources/soundcheck/js/fancybox/jquery.fancybox.js"></script>
-<script src="/resources/soundcheck/js/fancybox/helpers/jquery.fancybox-media.js"></script>
-<script src="/resources/soundcheck/js/color-picker.js"></script>
-<script src="/resources/soundcheck/js/jquery.validate.js"></script>
-<script src="/resources/soundcheck/js/jquery.form.js"></script>
-<script src="/resources/soundcheck/js/plugins.js"></script>
-<script src="/resources/soundcheck/js/sonorama.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+<script src="../../resources/soundcheck/js/jquery-1.11.0.min.js"></script>
+<script src="../../resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../resources/soundcheck/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="../../resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
+<script type="text/javascript" src="../../resources/soundcheck/js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="../../resources/soundcheck/js/jquery.nav.js"></script>
+<script src="../../resources/soundcheck/js/news.js"></script>
+<script src="../../resources/soundcheck/js/discography.js"></script>
+<script src="../../resources/soundcheck/js/tweets.js"></script>
+<script src="../../resources/soundcheck/js/jquery.scrolly.js"></script>
+<script src="../../resources/soundcheck/js/fancybox/jquery.fancybox.js"></script>
+<script src="../../resources/soundcheck/js/fancybox/helpers/jquery.fancybox-media.js"></script>
+<script src="../../resources/soundcheck/js/color-picker.js"></script>
+<script src="../../resources/soundcheck/js/jquery.validate.js"></script>
+<script src="../../resources/soundcheck/js/jquery.form.js"></script>
+<script src="../../resources/soundcheck/js/plugins.js"></script>
+<script src="../../resources/soundcheck/js/sonorama.js"></script>
 <script src="../../resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script>
     $('#startTime').datetimepicker({
