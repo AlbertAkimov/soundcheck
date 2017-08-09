@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -66,15 +67,36 @@ public class BandDaoImpl implements BandDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Band> listBand() {
+    public List<List<Band>> listBand() {
+        List<List<Band>> lists = new ArrayList<>();
+
         Session session = this.sessionFactory.getCurrentSession();
         List<Band> listBand = session.createQuery(Queries.band).list();
 
         LOGGER.info("List band successfully loaded.");
 
-        for(Band band : listBand)
+        for(Band band : listBand) {
             LOGGER.info("List Band: " + band);
+        }
 
-        return listBand;
+        while (!listBand.isEmpty()){
+            List<Band> res = new ArrayList<>();
+
+            if(listBand.size() >= 5) {
+                List<Band> chunck = listBand.subList(0, 5);
+                res.addAll(chunck);
+                lists.add(lists.size(), res);
+                chunck.clear();
+            }
+            else {
+                List<Band> chunck = listBand.subList(0, listBand.size());
+                res.addAll(chunck);
+                lists.add(lists.size(), res);
+                chunck.clear();
+            }
+
+        }
+
+        return lists;
     }
 }

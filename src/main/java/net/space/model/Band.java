@@ -1,5 +1,7 @@
 package net.space.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -20,9 +22,22 @@ public class Band {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "CREATE_DATE")
+    private Date createDate;
+
     @Column(name = "DATE_BAND")
-    @Temporal(TemporalType.DATE)
-    private Date dataBand;
+    //@Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "dd-mm-yyyy", iso = DateTimeFormat.ISO.DATE)
+    private Date dataBand; // todo rename this field with 'data' on 'date'
+
+    @Column(name = "DAY")
+    private int day;
+
+    @Column(name = "MONTH")
+    private String month;
+
+    @Column(name = "YEAR")
+    private int year;
 
     @Column(name = "NAME_BAND")
     private String nameBand;
@@ -39,6 +54,22 @@ public class Band {
     @Column(name = "COMMENT")
     private String comment;
 
+    public Band() {}
+
+    public Band(Date createDate, Date dataBand, int day, String month, int year,
+                String nameBand, String startTime, String endTime, int countHours, String comment) {
+        this.createDate = createDate;
+        this.dataBand = dataBand;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.nameBand = nameBand;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.countHours = countHours;
+        this.comment = comment;
+    }
+
     public int getId() {
         return id;
     }
@@ -47,12 +78,44 @@ public class Band {
         this.id = id;
     }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     public Date getDataBand() {
         return dataBand;
     }
 
     public void setDataBand(Date dataBand) {
         this.dataBand = dataBand;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public String getNameBand() {
@@ -99,7 +162,11 @@ public class Band {
     public String toString() {
         return "Band{" +
                 "id=" + id +
+                ", createDate=" + createDate +
                 ", dataBand=" + dataBand +
+                ", day=" + day +
+                ", month='" + month + '\'' +
+                ", year=" + year +
                 ", nameBand='" + nameBand + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +

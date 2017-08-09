@@ -51,7 +51,7 @@ public class BandServiceImpl implements BandService{
 
     @Override
     @Transactional
-    public List<Band> listBand() {
+    public List<List<Band>> listBand() {
         return this.bandDao.listBand();
     }
 
