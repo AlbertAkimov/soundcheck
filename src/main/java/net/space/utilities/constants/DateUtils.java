@@ -24,7 +24,6 @@ public class DateUtils {
      * @param date this param of field 'bandDate' from simple javaBean {@link Band} class.
      * @return format month to string.
      */
-
     public static String getMonthName(Date date) {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(date);
@@ -36,7 +35,6 @@ public class DateUtils {
      * @param date this param of field 'bandDate' from simple javaBean {@link Band} class.
      * @return int year from {@param date}.
      */
-
     public static int getYear(Date date) {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(date);
@@ -48,7 +46,6 @@ public class DateUtils {
      * @param date this param of field 'bandDate' from simple javaBean {@link Band} class.
      * @return int day from param {@param date}.
      */
-
     public static int getDay(Date date) {
         Calendar calendar = new GregorianCalendar();
         calendar.setTime(date);

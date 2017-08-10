@@ -5,12 +5,11 @@
   Time: 10:16 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -18,8 +17,8 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <title>Sonorama - Music Theme</title>
+    <meta charset="UTF-8">
+    <title>Sound Check - Music Theme</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -52,6 +51,16 @@
     <link rel="stylesheet" type="text/css" href="../../resources/datepicker/jquery.datetimepicker.css"/>
     <script src="../../resources/datepicker/jquery.js"></script>
 
+    <style type="text/css">
+        .form{height: 50px;}
+        .form. test{
+            width: 100%;
+            background: none;
+            color: #fff;
+            border: 2px solid #6e6e6e;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -86,17 +95,17 @@
 
 <div class="full-wrapper header">
     <div class="main-logo">
-        <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>sonorama<span>.</span></a>
+        <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>sound check<span>.</span></a>
     </div>
 
     <nav class="main-menu">
         <ul>
-            <li class="current"><a href="#anchor0">Home</a></li>
-            <li><a href="#anchor01">Last News</a></li>
-            <li><a href="#anchor02">Gigs</a></li>
-            <li><a href="#anchor03">Discography</a></li>
-            <li><a href="#anchor04">Gallery</a></li>
-            <li><a href="#anchor05">Contact</a></li>
+            <li class="current"><a href="#anchor0">Sound Check</a></li>
+            <li><a href="#anchor01">Новости</a></li>
+            <li><a href="#anchor02">Деятельность</a></li>
+            <li><a href="#anchor03">Сотрудничать</a></li>
+            <li><a href="#anchor04">Галерея</a></li>
+            <li><a href="#anchor05">Контакты</a></li>
             <li><a href="./blog.html">Blog</a></li>
         </ul>
     </nav>
@@ -105,11 +114,11 @@
         <a class="jump-menu" title="Show navigation">Show navigation</a>
         <ul>
             <li><a href="#anchor0">Home</a></li>
-            <li><a href="#anchor01">Last News</a></li>
-            <li><a href="#anchor02">Gigs</a></li>
-            <li><a href="#anchor03">Discography</a></li>
-            <li><a href="#anchor04">Gallery</a></li>
-            <li><a href="#anchor05">Contact</a></li>
+            <li><a href="#anchor01">Новости</a></li>
+            <li><a href="#anchor02">Деятельность</a></li>
+            <li><a href="#anchor03">Сотрудничать</a></li>
+            <li><a href="#anchor04">Галерея</a></li>
+            <li><a href="#anchor05">Контакты</a></li>
             <li><a href="./blog.html">Blog</a></li>
         </ul>
     </nav>
@@ -272,7 +281,7 @@
 <section id="dates" class="full-wrapper parallax-wrapper dates"> <!-- Tour Dates -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div class="front-content dates">
-            <h1>Tour Dates</h1>
+            <h1>Рассписание</h1>
             <div class="spacer"></div>
             <div class="dates-wrapper">
                 <ul>
@@ -282,9 +291,9 @@
                                 <c:forEach items="${listBands}" var="band">
                                     <div class="date-box"> <!-- Date Info 1 -->
                                         <div class="info date">
-                                            <div class="day">23</div>
-                                            <div class="month">Jan</div>
-                                            <div class="year">2014</div>
+                                            <div class="day">${band.day}</div>
+                                            <div class="month">${band.month}</div>
+                                            <div class="year">${band.year}</div>
                                         </div>
                                         <div class="info">
                                             <div class="city">${band.nameBand}</div>
@@ -292,7 +301,7 @@
                                         </div>
                                         <div class="info">
                                             <div class="time"><div class="ico"></div>${band.startTime} - ${band.endTime}</div>
-                                            <div class="buy"><div class="ico"></div><a href="#">Buy Tickets</a></div>
+                                            <div class="buy"><div class="ico"></div><a href="<c:url value='/edit/${band.id}'/>">Изменить</a></div>
                                         </div>
                                         <div class="clear"></div>
                                     </div> <!-- end Date Info 1 -->
@@ -315,62 +324,74 @@
         <div class="overlay"></div>
     </div>
 </section><!-- end Tour Dates -->
+
+
+
 <div class="clear"></div>
+<c:url var="addAction" value="/main/add"/>
+<section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
+    <div class="parallax" data-velocity="-.3" data-fit="0">
+        <div id="anchor03"></div>
+        <div class="front-content contact">
+            <h1>Работать с нами</h1>
+            <div class="spacer"></div>
 
-<div id="anchor03"></div>
-<div class="main-wrapper">
-    <section id="discography" class="section"><!-- Discography -->
-        <h1>Discography</h1>
-        <div class="spacer"></div>
-        <div class="disc-container">
-            <ul>
+            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band">
+                <div id="personal" class="bay form-horizontal">
+                    <div class="control-group">
+                        <div class="controls name">
+                            <h2>Имя банды</h2>
+                            <form:input path="nameBand" id="name" class="required span9"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls email">
+                            <h2>Дата</h2>
+                            <form:input path="dataBand" id="dateBand" class="required span9"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls name">
+                            <h2>Время начала</h2>
+                            <form:input path="startTime" id="timeBand" class="required span9"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls email">
+                            <h2>Время начала</h2>
+                            <form:input path="endTime" id="timeBand2" class="required span9"/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls name">
+                            <h2>Время начала</h2>
+                            <form:select path="comment" id="name" type="text">
+                                <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
+                                <form:option type="text" value="Запись" id="name">Запись</form:option>
+                                <form:option type="text" value="Другое" id="name">Другое</form:option>
+                            </form:select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls send-btn">
+                            <button class="contour-btn red buttoncontact">Готово</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="notifications">
+                    <div id="contactFormSent" class="formSent alert alert-success">
+                        <strong>Your Message Has Been Sent!</strong> Thank you for contacting us.</div>
+                    <div id="contactFormError" class="formError alert alert-error">
+                        <strong>Oops, An error has ocurred!</strong> See the marked fields above to fix the errors.</div>
+                </div>
+            </form:form>
 
-                <li><!-- Disc #1 -->
-                    <div class="disc-img open-disc" id="disc-01.html">
-                        <img src="../../resources/soundcheck/img/discography/thumb-01.jpg" alt='img' />
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="disc-info">
-                        <h2>Aurora LP</h2>
-                        <p>The amazing album <br/>"Aurora LP" is now available</p>
-                        <p><a href="#">Buy Album</a></p>
-                    </div>
-                </li><!-- end Disc #1 -->
-
-                <li><!-- Disc #2 -->
-                    <div class="disc-img open-disc" id="disc-02.html">
-                        <img src="../../resources/soundcheck/img/discography/thumb-02.jpg" alt='img' />
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="disc-info">
-                        <h2>J COLE</h2>
-                        <p>The amazing album <br/>"J Cole" is now available</p>
-                        <p><a href="#">Buy Album</a></p>
-                    </div>
-                </li><!-- end Disc #2 -->
-
-                <li><!-- Disc #3 -->
-                    <div class="disc-img open-disc" id="disc-03.html">
-                        <img src="../../resources/soundcheck/img/discography/thumb-03.jpg" alt='img' />
-                        <div class="overlay"></div>
-                    </div>
-                    <div class="disc-info">
-                        <h2>Black Skinhead</h2>
-                        <p>The amazing album <br/>"Black Skinhead" is now available</p>
-                        <p><a href="#">Buy Album</a></p>
-                    </div>
-                </li><!-- end Disc #3 -->
-
-            </ul>
         </div>
-    </section><!-- end Discography -->
-    <div class="clear"></div>
-    <div id="project-show"></div>
-    <section class="project-window">
-        <div class="project-content"></div><!-- AJAX Dinamic Content -->
-    </section>
-
-</div>
+        <div class="square-bg"></div>
+        <div class="overlay"></div>
+    </div>
+</section><!-- end Contact -->
+<div class="clear"></div>
 
 <section id="quotes" class="full-wrapper parallax-wrapper quotes"> <!-- Twitter Quotes -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
@@ -528,25 +549,25 @@
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Name</h2>
-                            <input class="required span9" type="text" name="author" data-fieldid="0" id="name">
+                            <input type="text" name="author" data-fieldid="0" id="name">
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Email</h2>
-                            <input class="required span9" type="email" name="email" data-fieldid="1" id="email">
+                            <input type="email" name="email" data-fieldid="1" id="email">
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="controls message">
                             <h2>Message</h2>
-                            <textarea name="message" rows="12" class="required span9" data-fieldid="2" id="comments"></textarea>
+                            <textarea name="message" rows="12" data-fieldid="2" id="comments"></textarea>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button type="submit" class="contour-btn red buttoncontact">Send Message</button>
+                            <button type="submit" class="contour-btn red buttoncontact">Отправить сообщение</button>
                         </div>
                     </div>
                 </div>
@@ -600,18 +621,18 @@
 <script src="../../resources/soundcheck/js/sonorama.js"></script>
 <script src="../../resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script>
-    $('#startTime').datetimepicker({
+    $('#timeBand2').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
-    $('#endTime').datetimepicker({
+    $('#timeBand').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
 
     jQuery.datetimepicker.setLocale('de');
 
-    jQuery('#dataBand').datetimepicker({
+    jQuery('#dateBand').datetimepicker({
         i18n:{
             de:{
                 months:[
