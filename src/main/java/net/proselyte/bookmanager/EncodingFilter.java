@@ -9,7 +9,7 @@ import java.io.IOException;
  * @Data 8/11/17
  * @Time 12:10 PM
  * @Version 1.0
- * @Info empty
+ * @Info encoding filter to utf-8
  */
 
 public class EncodingFilter implements Filter {
