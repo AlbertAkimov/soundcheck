@@ -3,6 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="false" %>
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Books Page</title>
@@ -53,6 +54,7 @@
 <br/>
 
 <h1>Book List</h1>
+<h2>Мутация</h2>
 
 <c:if test="${!empty listBooks}">
     <table class="tg">
