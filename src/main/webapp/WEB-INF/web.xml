@@ -2,6 +2,7 @@
          xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
   <display-name>Archetype Created Web Application</display-name>
 
   <servlet>
@@ -19,7 +20,7 @@
 
     <filter-name>EncodingFilter</filter-name>
     <filter-class>
-      net.proselyte.bookmanager.EncodingFilter
+      net.space.filters.EncodingFilter
     </filter-class>
 
     <init-param>
@@ -42,3 +43,6 @@
   </jsp-config>
 
 </web-app>
+
+
+
