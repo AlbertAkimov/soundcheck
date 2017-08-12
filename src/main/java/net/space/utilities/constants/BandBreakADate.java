@@ -1,6 +1,7 @@
 package net.space.utilities.constants;
 
 import net.space.model.Band;
+import org.junit.Assert;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ public class BandBreakADate {
 
     public static Band breakADate(Band band) {
         band.setCreateDate(new Date());
+        band.setCountHours(getDiffTimes(band.getStartTime(), band.getEndTime()));
         band.setYear(DateUtils.getYear(band.getDateBand()));
         band.setMonth(DateUtils.getMonthName(band.getDateBand()));
         band.setDay(DateUtils.getDay(band.getDateBand()));
@@ -24,6 +26,19 @@ public class BandBreakADate {
     }
 
     public static int getDiffTimes(String startTime, String endTime) {
-        return 0;
+        int start = Integer.valueOf(startTime.substring(0,2));
+        int end = Integer.valueOf(endTime.substring(0,2));
+        int difference = (end - start);
+
+        Assert.assertNotEquals(start, end);
+
+        boolean indicator = false;
+
+        if(difference != 0)
+            indicator = true;
+
+        Assert.assertTrue(indicator);
+
+        return difference;
     }
 }

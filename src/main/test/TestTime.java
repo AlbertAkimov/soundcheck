@@ -1,7 +1,12 @@
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * @Author A.Albert
@@ -13,14 +18,44 @@ import java.text.SimpleDateFormat;
 
 public class TestTime {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
+
+    }
+
+    @Test
+    public void testDiffTime() throws ParseException { // todo this method is bad. I'm testing convert 'String' to 'Time' and 'Calendar'
         DateFormat formatter = new SimpleDateFormat("HH:mm");
-        String time = "11:00";
-        String time1 = "13:00";
 
-        Time conTime = new Time(formatter.parse(time).getTime());
-        Time conTime2 = new Time(formatter.parse(time1).getTime());
+        String start = "11:00";
+        String end = "13:00";
 
-        System.out.println(conTime.getTime() / 1000 / 60 / 60);
+        Time startTime = new Time(formatter.parse(start).getTime());
+        Time endTime = new Time(formatter.parse(end).getTime());
+
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+
+        cal1.setTime(startTime);
+        cal2.setTime(endTime);
+
+
+        System.out.println(cal1.get(Calendar.HOUR) - cal2.get(Calendar.HOUR));
+
+    }
+
+    @Test
+    public void testDiffTime2() {
+        int start = Integer.valueOf("11:00".substring(0, 2));
+        int end = Integer.valueOf("13:00".substring(0, 2));
+        int difference = (end - start);
+        boolean indicator = false;
+
+        Assert.assertNotEquals(start, end);
+
+        if (difference != 0) indicator = true;
+
+        Assert.assertTrue(indicator);
+
+        System.out.println("Difference time: " + (end - start));
     }
 }
