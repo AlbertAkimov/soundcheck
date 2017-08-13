@@ -744,6 +744,7 @@ section h1 {
 }
 .date-box .info .time .ico{background-position: center;}
 .date-box .info .buy .ico{background-position: bottom;}
+.date-box .info .place .ico{background-position: bottom;}
 .date-box .info .time, .date-box .info .buy, .date-box .info .place{padding-left: 20px;}
 .date-box .info .day {font-size: 30px; line-height: 25px; padding-top: 9px;}
 .date-box .info .month {font-size: 17px;}
@@ -752,8 +753,8 @@ section h1 {
 .date-box .info .buy{color: #c3121c; margin-top: 19px;}
 .date-box .info .buy a{color: #c3121c;}
 .date-box .info .buy a:hover{color: #fff;}
-.date-box .info .place{margin-top: 16px;}
-.date-box .info .time{margin-top: 6px;}
+.date-box .info .place{margin-top: 1px;}
+.date-box .info .time{margin-top: 5px;}
 
 /* Discography */
 

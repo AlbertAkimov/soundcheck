@@ -297,9 +297,9 @@
                                         <div class="info">
                                             <div class="city">${band.nameBand}</div>
                                             <div class="place"><div class="ico"></div>${band.comment}</div>
+                                            <div class="time"><div class="ico"></div>${band.startTime} - ${band.endTime}</div>
                                         </div>
                                         <div class="info">
-                                            <div class="time"><div class="ico"></div>${band.startTime} - ${band.endTime}</div>
                                             <div class="buy"><div class="ico"></div><a href="<c:url value='/edit/${band.id}'/>">Изменить</a></div>
                                         </div>
                                         <div class="clear"></div>
@@ -340,25 +340,25 @@
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Имя банды</h2>
-                            <form:input path="nameBand" id="name" class="required span9"/>
+                            <form:input path="nameBand" id="name"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Дата</h2>
-                            <form:input path="dateBand" id="dateBand" class="required span9"/>
+                            <form:input path="dateBand" id="dateBand"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Время начала</h2>
-                            <form:input path="startTime" id="timeBand" class="required span9"/>
+                            <form:input path="startTime" id="timeBand"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Время начала</h2>
-                            <form:input path="endTime" id="timeBand2" class="required span9"/>
+                            <form:input path="endTime" id="timeBand2"/>
                         </div>
                     </div>
                     <div class="control-group">
@@ -548,25 +548,25 @@
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Name</h2>
-                            <input type="text" name="author" data-fieldid="0" id="name">
+                            <input class="required span9" type="text" name="author" data-fieldid="0" id="name">
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Email</h2>
-                            <input type="email" name="email" data-fieldid="1" id="email">
+                            <input class="required span9" type="email" name="email" data-fieldid="1" id="email">
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="controls message">
                             <h2>Message</h2>
-                            <textarea name="message" rows="12" data-fieldid="2" id="comments"></textarea>
+                            <textarea name="message" rows="12" class="required span9" data-fieldid="2" id="comments"></textarea>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button type="submit" class="contour-btn red buttoncontact">Отправить сообщение</button>
+                            <button type="submit" class="contour-btn red buttoncontact">Send Message</button>
                         </div>
                     </div>
                 </div>

@@ -40,6 +40,7 @@ public class TestTime {
 
 
         System.out.println(cal1.get(Calendar.HOUR) - cal2.get(Calendar.HOUR));
+        System.out.println(startTime);
 
     }
 
@@ -57,5 +58,16 @@ public class TestTime {
         Assert.assertTrue(indicator);
 
         System.out.println("Difference time: " + (end - start));
+    }
+
+    @Test
+    public void testClearMilliSec() {
+        String start = "12:00:00";
+        String end = "13:00:00";
+
+        String newStart = start.substring(0,5);
+        String newEnd = end.substring(0,5);
+
+        System.out.println("Convert milliseconds: " + newStart + " and " + newEnd);
     }
 }
