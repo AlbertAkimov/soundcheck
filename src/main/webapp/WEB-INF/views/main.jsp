@@ -98,26 +98,18 @@
 <div class="full-wrapper header">
     <div class="main-logo">
         <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>sound check<span>.</span></a>
-        <c:if test="${pageContext.request.userPrincipal.name != null}">
-            <form id="logoutForm" method="POST" action="${contextPath}/logout">
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            </form>
-
-            <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
-            </h2>
-
-        </c:if>
     </div>
 
     <nav class="main-menu">
         <ul>
             <li class="current"><a href="#anchor0">Sound Check</a></li>
             <li><a href="#anchor01">Новости</a></li>
-            <li><a href="#anchor02">Деятельность</a></li>
-            <li><a href="#anchor03">Сотрудничать</a></li>
+            <li><a href="#anchor02">Время</a></li>
+            <li><a href="#anchor03">Работать</a></li>
             <li><a href="#anchor04">Галерея</a></li>
             <li><a href="#anchor05">Контакты</a></li>
-            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="${pageContext.request.contextPath}/login">${pageContext.request.userPrincipal.name}</a></li>
+            <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
         </ul>
     </nav>
 
@@ -351,13 +343,13 @@
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="controls name">
-                            <h2>Имя банды</h2>
+                            <h2>Имя группы</h2>
                             <form:input path="nameBand" id="name"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
-                            <h2>Дата</h2>
+                            <h2>Желаемая дата</h2>
                             <form:input path="dateBand" id="dateBand"/>
                         </div>
                     </div>
