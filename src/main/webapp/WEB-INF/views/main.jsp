@@ -10,6 +10,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib prefix="from" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="UTF-8" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -18,8 +19,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <title>Sound Check - Music Theme</title>
-    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -95,6 +98,15 @@
 <div class="full-wrapper header">
     <div class="main-logo">
         <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>sound check<span>.</span></a>
+        <c:if test="${pageContext.request.userPrincipal.name != null}">
+            <form id="logoutForm" method="POST" action="${contextPath}/logout">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            </form>
+
+            <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
+            </h2>
+
+        </c:if>
     </div>
 
     <nav class="main-menu">

@@ -3,7 +3,6 @@ package net.space.controller;
 import net.space.model.Band;
 import net.space.service.BandService;
 import net.space.utilities.constants.BandBreakADate;
-import net.space.utilities.constants.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -34,7 +33,7 @@ public class BandController {
         this.service = service;
     }
 
-    @RequestMapping(value = "main", method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
     public String listBook(Model model) {
         model.addAttribute("band", new Band());
         model.addAttribute("listBand", this.service.listBand());
