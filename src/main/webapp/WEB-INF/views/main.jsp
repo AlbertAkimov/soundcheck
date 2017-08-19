@@ -339,35 +339,35 @@
             <h1>Работать с нами</h1>
             <div class="spacer"></div>
 
-            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band">
+            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band" id="addTime">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Имя группы</h2>
-                            <form:input path="nameBand" id="name"/>
+                            <form:input path="nameBand" id="name" name="nameBand"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Желаемая дата</h2>
-                            <form:input path="dateBand" id="dateBand"/>
+                            <form:input path="dateBand" id="dateBand" name="dateBand"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls name">
-                            <h2>Время начала</h2>
-                            <form:input path="startTime" id="timeBand"/>
+                            <h2>Время(c)</h2>
+                            <form:input path="startTime" id="timeBand" name="startTime"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
-                            <h2>Время начала</h2>
-                            <form:input path="endTime" id="timeBand2"/>
+                            <h2>Время(до)</h2>
+                            <form:input path="endTime" id="timeBand2" name="endTime"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls name">
-                            <h2>Время начала</h2>
+                            <h2>Вид деятельности</h2>
                             <form:select path="comment" id="name" type="text">
                                 <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
                                 <form:option type="text" value="Запись" id="name">Запись</form:option>

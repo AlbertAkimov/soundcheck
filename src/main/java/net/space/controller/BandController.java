@@ -3,11 +3,13 @@ package net.space.controller;
 import net.space.model.Band;
 import net.space.service.BandService;
 import net.space.utilities.constants.BandBreakADate;
+import net.space.validators.BandValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +29,9 @@ public class BandController {
 
     private BandService service;
 
+    @Autowired
+    private BandValidator bandValidator;
+
     @Autowired(required = true)
     @Qualifier(value = "bandService")
     public void setService(BandService service) {
@@ -41,7 +46,12 @@ public class BandController {
     }
 
     @RequestMapping(value = "/main/add", method = RequestMethod.POST)
-    public String addBand(@ModelAttribute(value = "band") Band band) {
+    public String addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
+        bandValidator.validate(band, bindingResult);
+
+        if(bindingResult.hasErrors())
+            return "main";
+
         if(band.getId() == 0)
             this.service.addBand(BandBreakADate.breakADate(band));
 

@@ -30,6 +30,54 @@
 			$('.formSent').show();
 		}
 	});
+
+	/*
+	* Validator for form addBand
+	* */
+	$ (function () {
+    $("#addTime").validate({
+        rules: {
+            nameBand: {
+                required: true,
+				rangelength: [4, 14]
+            },
+
+            dateBand: {
+            	required: true
+			},
+
+			startTime: {
+            	required: true
+			},
+
+			endTime: {
+            	required: true
+			}
+        },
+		messages:{
+        	nameBand: {
+                required: "Поле обязательно для заполнения",
+                rangelength: "Имя группы должно быть в диапазоне от 4 до 14 символов"
+            },
+
+			dateBand:{
+        		required: "Поле обязательно для заполнения"
+			},
+
+			startTime: {
+                required: "Поле обязательно для заполнения"
+			},
+
+			endTime: {
+                required: "Поле обязательно для заполнения"
+			}
+		},
+
+		focusCleanup: true,
+		focusInvalid: false
+    });
+	});
+
 	
 	/* Loading */
 	$(window).load(function() {
