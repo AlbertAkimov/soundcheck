@@ -45,7 +45,7 @@ public class BandController {
         return "main";
     }
 
-    @RequestMapping(value = "/main/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/main/add", method = RequestMethod.POST , produces = {"text/html; charset=UTF-8"})
     public String addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
         bandValidator.validate(band, bindingResult);
 

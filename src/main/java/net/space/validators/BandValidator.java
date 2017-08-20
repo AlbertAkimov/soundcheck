@@ -32,15 +32,13 @@ public class BandValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
+
         Band band = (Band) target;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
         List<List<Band>> lists = bandService.listBand();
 
         for (List<Band> bands : lists) {
-
             for(Band iBand : bands) {
-
                 if(dateFormat.format(band.getDateBand()).equals(dateFormat.format(iBand.getDateBand()))) {
 
                     if(band.getStartTime().equals(iBand.getStartTime().substring(0, 5))) {

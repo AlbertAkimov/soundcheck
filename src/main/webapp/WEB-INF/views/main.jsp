@@ -48,7 +48,7 @@
 
     <!-- Scripts JS -->
     <script src="../../resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="../../resources/soundcheck/js/form/ajax.js"></script>
+    <!-- script src="../../resources/soundcheck/js/form/ajax.js"></script> -->
 
     <!-- links for datepicker -->
     <link rel="stylesheet" type="text/css" href="../../resources/datepicker/jquery.datetimepicker.css"/>
@@ -352,7 +352,10 @@
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Желаемая дата</h2>
-                            <form:input path="dateBand" id="dateBand" name="dateBand"/>
+                            <spring:bind path="dateBand">
+                                <form:input path="dateBand" id="dateBand" name="dateBand"/>
+                                <form:errors path="dateBand" cssClass="has-error"/>
+                            </spring:bind>
                         </div>
                     </div>
                     </div>
@@ -361,13 +364,19 @@
                         <div class="container">
                         <div class="controls name">
                             <h2>Время(c)</h2>
-                            <form:input path="startTime" id="timeBand" name="startTime"/>
+                            <spring:bind path="startTime">
+                                <form:input path="startTime" id="timeBand" name="startTime"/>
+                                <form:errors path="startTime" cssClass="has-error"/>
+                            </spring:bind>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Время(до)</h2>
-                            <form:input path="endTime" id="timeBand2" name="endTime"/>
+                            <spring:bind path="endTime">
+                                <form:input path="endTime" id="timeBand2" name="endTime"/>
+                                <form:errors path="endTime" cssClass="has-error"/>
+                            </spring:bind>
                         </div>
                     </div>
                     </div>
