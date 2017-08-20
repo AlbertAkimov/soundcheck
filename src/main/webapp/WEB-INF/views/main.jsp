@@ -48,6 +48,7 @@
 
     <!-- Scripts JS -->
     <script src="../../resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="../../resources/soundcheck/js/form/ajax.js"></script>
 
     <!-- links for datepicker -->
     <link rel="stylesheet" type="text/css" href="../../resources/datepicker/jquery.datetimepicker.css"/>
@@ -342,6 +343,7 @@
             <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band" id="addTime">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
+                        <div class="container">
                         <div class="controls name">
                             <h2>Имя группы</h2>
                             <form:input path="nameBand" id="name" name="nameBand"/>
@@ -353,7 +355,10 @@
                             <form:input path="dateBand" id="dateBand" name="dateBand"/>
                         </div>
                     </div>
+                    </div>
+                    <div class="clear"></div>
                     <div class="control-group">
+                        <div class="container">
                         <div class="controls name">
                             <h2>Время(c)</h2>
                             <form:input path="startTime" id="timeBand" name="startTime"/>
@@ -365,8 +370,10 @@
                             <form:input path="endTime" id="timeBand2" name="endTime"/>
                         </div>
                     </div>
+                    </div>
+                    <div class="clear"></div>
                     <div class="control-group">
-                        <div class="controls name">
+                        <div class="controls view">
                             <h2>Вид деятельности</h2>
                             <form:select path="comment" id="name" type="text">
                                 <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
@@ -377,7 +384,7 @@
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button class="contour-btn red buttoncontact">Готово</button>
+                            <button class="contour-btn red buttoncontact" id="submit">Готово</button>
                         </div>
                     </div>
                 </div>
