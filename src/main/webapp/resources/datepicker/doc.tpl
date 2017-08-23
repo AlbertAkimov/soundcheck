@@ -274,7 +274,7 @@ jQuery('#_datetimepicker_mask').datetimepicker({
 <p>If select day is Saturday, the minimum set 11:00, otherwise 8:00</p>
 <p><strong>javaScript</strong></p>
 <pre><code data-language="javascript">var logic = function( currentDateTime ){
-  // 'this' is jquery object datetimepicker
+  // 'this' is jquery result datetimepicker
   if( currentDateTime.getDay()==6 ){
     this.setOptions({
       minTime:'11:00'
@@ -363,7 +363,7 @@ jQuery('#_datetimepicker_weekends_disable').datetimepicker({
 // ]]></script>
 <hr id="use_other_date_parser" />
 <h4>Use another date parser/formatter<a href="#use_other_date_parser">#</a></h4>
-<p>By default, datetimepicker uses <a href="https://github.com/kartik-v/php-date-formatter">php-date-formatter</a> for parsing and formatting the date and time displayed. You can replace the library by setting a custom DateFormatter. Simply supply an object that implements the <tt>parseDate</tt> and <tt>formatDate</tt> methods. This example uses the popular <a href="http://momentjs.com/">MomentJS</a> library:</p>
+<p>By default, datetimepicker uses <a href="https://github.com/kartik-v/php-date-formatter">php-date-formatter</a> for parsing and formatting the date and time displayed. You can replace the library by setting a custom DateFormatter. Simply supply an result that implements the <tt>parseDate</tt> and <tt>formatDate</tt> methods. This example uses the popular <a href="http://momentjs.com/">MomentJS</a> library:</p>
 <pre><code data-language="javascript">$.datetimepicker.setDateFormatter({
     parseDate: function (date, format) {
         var d = moment(date, format);
@@ -927,13 +927,13 @@ jQuery(function(){
 <tr id="ownerDocument">
 <td>ownerDocument</td>
 <td>document</td>
-<td>The ownerDocument object for the datetimepicker to properly attach events and calc position (iframe support).</td>
+<td>The ownerDocument result for the datetimepicker to properly attach events and calc position (iframe support).</td>
 <td> </td>
 </tr>
 <tr id="contentWindow">
 <td>contentWindow</td>
 <td>window</td>
-<td>The contentWindow object that contains the datetimepicker to properly attach events (iframe support).</td>
+<td>The contentWindow result that contains the datetimepicker to properly attach events (iframe support).</td>
 <td> </td>
 </tr>
 </tbody>
@@ -984,7 +984,7 @@ $('#input').datetimepicker('setOptions', {format: 'd/m/Y'});
 $('#input').datetimepicker({format: 'd/m/Y'});
 </code></pre>
 <h3>getValue</h3>
-<p>Get current datetimepicker's value (Date object) </p>
+<p>Get current datetimepicker's value (Date result) </p>
 <pre><code data-language="javascript">$('#input').datetimepicker();
 $('button.somebutton').on('click', function () {
     var d = $('#input').datetimepicker('getValue');

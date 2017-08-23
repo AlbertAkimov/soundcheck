@@ -4,6 +4,7 @@ import net.space.model.Band;
 import net.space.service.BandService;
 import net.space.utilities.constants.BandBreakADate;
 import net.space.validators.BandValidator;
+import net.space.validators.json.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -45,20 +46,37 @@ public class BandController {
         return "main";
     }
 
-    @RequestMapping(value = "/main/add", method = RequestMethod.POST , produces = {"text/html; charset=UTF-8"})
-    public String addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
+    @RequestMapping(value = "/main/add", method = RequestMethod.POST)
+    public @ResponseBody JsonResponse addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
+
         bandValidator.validate(band, bindingResult);
 
-        if(bindingResult.hasErrors())
-            return "main";
+        JsonResponse jr = new JsonResponse();
 
-        if(band.getId() == 0)
-            this.service.addBand(BandBreakADate.breakADate(band));
+        if(!bindingResult.hasErrors()) {
 
-        else
-            this.service.updateBand(band);
+            jr.setStatus("SUCCESS");
+            jr.setResult(band);
 
-        return "redirect:/main";
+            if (band.getId() == 0)
+                this.service.addBand(BandBreakADate.breakADate(band));
+
+            else
+                this.service.updateBand(band);
+
+        }
+        else{
+            jr.setStatus("FAIL");
+            jr.setResult(bindingResult.getAllErrors());
+        }
+
+        return jr;
+    }
+
+    @RequestMapping(value = "/validate", method = RequestMethod.GET)
+    public @ResponseBody String testing(@RequestParam String band) {
+
+        return "hello";
     }
 
     @RequestMapping(value = "/remove/{id}")

@@ -1169,12 +1169,12 @@ p.user, p.timePosted, p.interact{display: none;}
 	float: right;
 }
 
-.timeBand {
+.startTime {
 	width: 48%;
 	float: left;
 }
 
-.timeBand2 {
+.endTime {
 	width: 48%;
 	float: right;
 }
@@ -1187,8 +1187,8 @@ p.user, p.timePosted, p.interact{display: none;}
 	display: inline-block;
 	width: 48%;
 }
-.form #name, .form #email, .form #timeBand, .form #timeBand2, .form #dateBand, form #view{height: 50px;}
-#comments, #name, #email, #timeBand, #timeBand2, #dateBand, #view{
+.form #name, .form #email, .form #startTime, .form #endTime, .form #dateBand, form #view{height: 50px;}
+#comments, #name, #email, #startTime, #endTime, #dateBand, #view{
 	width: 100%;
 	background: none;
 	color: #fff;

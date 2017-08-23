@@ -36,6 +36,7 @@
 	* */
 	$ (function () {
     $("#addTime").validate({
+
         rules: {
             nameBand: {
                 required: true,

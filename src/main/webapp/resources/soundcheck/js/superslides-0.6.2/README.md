@@ -40,12 +40,12 @@ $('#slides').superslides()
   <tr>
     <td>inherit_width_from</td>
     <td>window</td>
-    <td>[object] or [string] Accepts window or element selector. Use to constrain slider to an element's width.</td>
+    <td>[result] or [string] Accepts window or element selector. Use to constrain slider to an element's width.</td>
   </tr>
   <tr>
     <td>inherit_height_from</td>
     <td>window</td>
-    <td>[object] or [string] Accepts window or element selector. Use to constrain slider to an element's height.</td>
+    <td>[result] or [string] Accepts window or element selector. Use to constrain slider to an element's height.</td>
   </tr>
   <tr>
     <td>pagination</td>
@@ -60,13 +60,13 @@ $('#slides').superslides()
   <tr>
     <td>elements</td>
     <td>(see Elements below)</td>
-    <td>[object] A hash of element classes used in generated html.</td>
+    <td>[result] A hash of element classes used in generated html.</td>
   </tr>
 </table>
 
 ### Elements
 
-The following are element classes accessible under the `elements` object.
+The following are element classes accessible under the `elements` result.
 
 <table>
   <tr>

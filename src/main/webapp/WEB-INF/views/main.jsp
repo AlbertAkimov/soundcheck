@@ -27,32 +27,32 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- Styles CSS -->
-    <link rel="stylesheet" href="../../resources/soundcheck/css/normalize.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/main.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/sonorama.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/responsive.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/isotope.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/normalize.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/main.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/sonorama.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/responsive.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/isotope.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/js/fancybox/jquery.fancybox.css">
 
     <!--  Color Picker & Styles -->
     <link href="../../resources/soundcheck/css/color-picker.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/light.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/green.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/yellow.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/turquoise.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/red.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/orange.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/purple.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/blue.css">
-    <link rel="stylesheet" href="../../resources/soundcheck/css/color/black.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/light.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/green.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/yellow.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/turquoise.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/red.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/orange.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/purple.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/blue.css">
+    <link rel="stylesheet" href="${contextPath}/resources/soundcheck/css/color/black.css">
 
     <!-- Scripts JS -->
-    <script src="../../resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
-    <!-- script src="../../resources/soundcheck/js/form/ajax.js"></script> -->
+    <script src="${contextPath}/resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="${contextPath}/resources/soundcheck/js/form/ajax.js"></script>
 
     <!-- links for datepicker -->
-    <link rel="stylesheet" type="text/css" href="../../resources/datepicker/jquery.datetimepicker.css"/>
-    <script src="../../resources/datepicker/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/datepicker/jquery.datetimepicker.css"/>
+    <script src="${contextPath}/resources/datepicker/jquery.js"></script>
 
     <style type="text/css">
         .form{height: 50px;}
@@ -72,7 +72,7 @@
 
 <div id="mask">
     <div class="loader">
-        <img src="../../resources/soundcheck/img/icons/loading.gif" alt='loading'>
+        <img src="${contextPath}/resources/soundcheck/img/icons/loading.gif" alt='loading'>
     </div>
 </div>
 
@@ -81,8 +81,8 @@
     <div class="pickerTitle">Style Switcher</div>
     <div class="pwrapper">
         <div class="pickersubTitle">Layout Selector</div>
-        <div class="light-version"><img title="" alt='img' src="../../resources/soundcheck/img/icons/light.jpg"></div>
-        <div class="dark-version"><img title="" alt='img' src="../../resources/soundcheck/img/icons/dark.jpg"></div>
+        <div class="light-version"><img title="" alt='img' src="${contextPath}/resources/soundcheck/img/icons/light.jpg"></div>
+        <div class="dark-version"><img title="" alt='img' src="${contextPath}/resources/soundcheck/img/icons/dark.jpg"></div>
         <div class="pickersubTitle"> Color scheme </div>
         <div class="picker-blue"></div>
         <div class="picker-black"></div>
@@ -347,6 +347,7 @@
                         <div class="controls name">
                             <h2>Имя группы</h2>
                             <form:input path="nameBand" id="name" name="nameBand"/>
+                            <div id="bandInformation" class="has-error"></div>
                         </div>
                     </div>
                     <div class="control-group">
@@ -365,8 +366,8 @@
                         <div class="controls name">
                             <h2>Время(c)</h2>
                             <spring:bind path="startTime">
-                                <form:input path="startTime" id="timeBand" name="startTime"/>
-                                <form:errors path="startTime" cssClass="has-error"/>
+                                <form:input path="startTime" id="startTime" name="startTime"/>
+                                <form:errors path="startTime" cssClass="has-error" id="test"/>
                             </spring:bind>
                         </div>
                     </div>
@@ -374,7 +375,7 @@
                         <div class="controls email">
                             <h2>Время(до)</h2>
                             <spring:bind path="endTime">
-                                <form:input path="endTime" id="timeBand2" name="endTime"/>
+                                <form:input path="endTime" id="endTime" name="endTime"/>
                                 <form:errors path="endTime" cssClass="has-error"/>
                             </spring:bind>
                         </div>
@@ -384,7 +385,7 @@
                     <div class="control-group">
                         <div class="controls view">
                             <h2>Вид деятельности</h2>
-                            <form:select path="comment" id="name" type="text">
+                            <form:select path="comment" id="view" type="text">
                                 <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
                                 <form:option type="text" value="Запись" id="name">Запись</form:option>
                                 <form:option type="text" value="Другое" id="name">Другое</form:option>
@@ -393,15 +394,9 @@
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button class="contour-btn red buttoncontact" id="submit">Готово</button>
+                            <button class="contour-btn red buttoncontact" id="addBand">Готово</button>
                         </div>
                     </div>
-                </div>
-                <div class="notifications">
-                    <div id="contactFormSent" class="formSent alert alert-success">
-                        <strong>Your Message Has Been Sent!</strong> Thank you for contacting us.</div>
-                    <div id="contactFormError" class="formError alert alert-error">
-                        <strong>Oops, An error has ocurred!</strong> See the marked fields above to fix the errors.</div>
                 </div>
             </form:form>
 
@@ -619,32 +614,32 @@
 </section>
 
 <!-- Scripts JS -->
-<!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
-<script src="../../resources/soundcheck/js/jquery-1.11.0.min.js"></script>
-<script src="../../resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
-<script src="../../resources/soundcheck/js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="../../resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
-<script type="text/javascript" src="../../resources/soundcheck/js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="../../resources/soundcheck/js/jquery.nav.js"></script>
-<script src="../../resources/soundcheck/js/news.js"></script>
-<script src="../../resources/soundcheck/js/discography.js"></script>
-<script src="../../resources/soundcheck/js/tweets.js"></script>
-<script src="../../resources/soundcheck/js/jquery.scrolly.js"></script>
-<script src="../../resources/soundcheck/js/fancybox/jquery.fancybox.js"></script>
-<script src="../../resources/soundcheck/js/fancybox/helpers/jquery.fancybox-media.js"></script>
-<script src="../../resources/soundcheck/js/color-picker.js"></script>
-<script src="../../resources/soundcheck/js/jquery.validate.js"></script>
-<script src="../../resources/soundcheck/js/jquery.form.js"></script>
-<script src="../../resources/soundcheck/js/plugins.js"></script>
-<script src="../../resources/soundcheck/js/sonorama.js"></script>
-<script src="../../resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
+<script src="${contextPath}/resources/soundcheck/js/jquery-1.11.0.min.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+<script src="${contextPath}/resources/soundcheck/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
+<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/jquery.nav.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/news.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/discography.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/tweets.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/jquery.scrolly.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/fancybox/jquery.fancybox.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/fancybox/helpers/jquery.fancybox-media.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/color-picker.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/jquery.validate.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/jquery.form.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/plugins.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/sonorama.js"></script>
+<script src="${contextPath}/resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script>
-    $('#timeBand2').datetimepicker({
+    $('#endTime').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
-    $('#timeBand').datetimepicker({
+    $('#startTime').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
@@ -657,11 +652,11 @@
                 months:[
                     'Januar','Februar','März','April',
                     'Mai','Juni','Juli','August',
-                    'September','Oktober','November','Dezember',
+                    'September','Oktober','November','Dezember'
                 ],
                 dayOfWeek:[
                     "So.", "Mo", "Di", "Mi",
-                    "Do", "Fr", "Sa.",
+                    "Do", "Fr", "Sa."
                 ]
             }
         },
