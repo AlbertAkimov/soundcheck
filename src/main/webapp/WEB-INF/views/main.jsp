@@ -332,7 +332,6 @@
 
 
 <div class="clear"></div>
-<c:url var="addAction" value="/main/add"/>
 <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor03"></div>
@@ -340,23 +339,20 @@
             <h1>Работать с нами</h1>
             <div class="spacer"></div>
 
-            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band" id="addTime">
+            <form class="peThemeContactForm form" id="addTime">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="container">
                         <div class="controls name">
                             <h2>Имя группы</h2>
-                            <form:input path="nameBand" id="name" name="nameBand"/>
+                            <input id="name" name="nameBand"/>
                             <div id="bandInformation" class="has-error"></div>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Желаемая дата</h2>
-                            <spring:bind path="dateBand">
-                                <form:input path="dateBand" id="dateBand" name="dateBand"/>
-                                <form:errors path="dateBand" cssClass="has-error"/>
-                            </spring:bind>
+                                <input id="dateBand" name="dateBand"/>
                         </div>
                     </div>
                     </div>
@@ -365,19 +361,13 @@
                         <div class="container">
                         <div class="controls name">
                             <h2>Время(c)</h2>
-                            <spring:bind path="startTime">
-                                <form:input path="startTime" id="startTime" name="startTime"/>
-                                <form:errors path="startTime" cssClass="has-error" id="test"/>
-                            </spring:bind>
+                                <input id="startTime" name="startTime"/>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Время(до)</h2>
-                            <spring:bind path="endTime">
-                                <form:input path="endTime" id="endTime" name="endTime"/>
-                                <form:errors path="endTime" cssClass="has-error"/>
-                            </spring:bind>
+                                <input id="endTime" name="endTime"/>
                         </div>
                     </div>
                     </div>
@@ -385,11 +375,11 @@
                     <div class="control-group">
                         <div class="controls view">
                             <h2>Вид деятельности</h2>
-                            <form:select path="comment" id="view" type="text">
-                                <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
-                                <form:option type="text" value="Запись" id="name">Запись</form:option>
-                                <form:option type="text" value="Другое" id="name">Другое</form:option>
-                            </form:select>
+                            <select id="view" type="text">
+                                <option type="text" value="Репетиция" id="name">Репетиция</option>
+                                <option type="text" value="Запись" id="name">Запись</option>
+                                <option type="text" value="Другое" id="name">Другое</option>
+                            </select>
                         </div>
                     </div>
                     <div class="control-group">
@@ -398,7 +388,7 @@
                         </div>
                     </div>
                 </div>
-            </form:form>
+            </form>
 
         </div>
         <div class="square-bg"></div>
