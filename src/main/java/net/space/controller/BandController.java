@@ -63,7 +63,6 @@ public class BandController {
 
             else
                 this.service.updateBand(band);
-
         }
         else{
             jr.setStatus("FAIL");

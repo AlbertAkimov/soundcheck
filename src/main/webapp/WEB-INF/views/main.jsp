@@ -66,6 +66,14 @@
             outline: none;
         }
     </style>
+
+
+    <link href="${contextPath}/resources/newdatepicker/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="${contextPath}/resources/newdatepicker/datepicker.min.js"></script>
+
+    <link href="${contextPath}/resources/clock/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css">
+    <script src="${contextPath}/resources/clock/bootstrap-clockpicker.min.js"></script>
+
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -354,7 +362,7 @@
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Желаемая дата</h2>
-                                    <input id="date-band" class="date-picker"/>
+                                    <input id="date-band" class="datepicker-here" data-date-format="yyyy-mm-dd" type="date"/>
                             </div>
                         </div>
                     </div>
@@ -363,13 +371,13 @@
                         <div class="container">
                             <div class="controls name">
                                 <h2>Время(c)</h2>
-                                    <input id="startTime"/>
+                                    <input id="startTime" class="input-group clockpicker"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Время(до)</h2>
-                                    <input id="endTime"/>
+                                    <input id="endTime" class="clockpicker"/>
                             </div>
                         </div>
                     </div>
@@ -388,6 +396,7 @@
                         <div class="controls send-btn">
                             <button class="contour-btn red buttoncontact" id="add-band">Готово</button>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <div id="success" class="has-error"></div>
                         </div>
                     </div>
                 </div>
@@ -649,6 +658,8 @@
         format:'d-m-Y'
     });
 </script>
-
+<script type="text/javascript">
+    $('.clockpicker').clockpicker();
+</script>
 </body>
 </html>

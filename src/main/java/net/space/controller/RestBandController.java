@@ -42,21 +42,16 @@ public class RestBandController {
         JsonResponse jr = new JsonResponse();
 
         if(errors.hasErrors()) {
-            jr.setStatus("SUCCESS");
+            jr.setStatus("FAIL");
             jr.setResult(errors.getAllErrors());
 
             return ResponseEntity.badRequest().body(jr);
         }
 
-        if(band.getId() == 0)
-            service.addBand(BandBreakADate.breakADate(band));
-
-        else
-            service.updateBand(band);
-
-        jr.setStatus("FAIL");
-        jr.setResult(band);
-
-        return ResponseEntity.ok(jr);
+        else {
+            jr.setStatus("SUCCESS");
+            jr.setResult(band);
+            return ResponseEntity.ok(jr);
+        }
     }
 }

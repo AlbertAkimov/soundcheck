@@ -27,6 +27,9 @@ function fire_ajax_submit() {
     var band = {};
     band["nameBand"] = $("#name").val();
     band["dateBand"] = $("#date-band").val();
+    band["startTime"] = $("#startTime").val();
+    band["endTime"] = $("#endTime").val();
+    band["comment"] = $("#view").val();
 
     //search["email"] = $("#email").val();
 
@@ -42,12 +45,20 @@ function fire_ajax_submit() {
         timeout: 600000,
         success: function (data) {
 
-            var json = "<h4>Ajax Response</h4><pre>"
-                + JSON.stringify(data, null, 4) + "</pre>";
-            $('#feedback').html(json);
+            if(data.status === "SUCCESS") {
+                $('#success').html("Заявка принята, спасибо.");
+            }
 
-            console.log("SUCCESS : ", data);
-            $("#add-band").prop("disabled", false);
+            else {
+                $('#success').html("Ошибка");
+            }
+
+            //var json = "<h4>Ajax Response</h4><pre>"
+               // + JSON.stringify(data, null, 4) + "</pre>";
+            //$('#feedback').html(json);
+
+            //console.log("SUCCESS : ", data);
+            //$("#add-band").prop("disabled", false);
 
         },
         error: function (e) {
