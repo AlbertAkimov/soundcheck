@@ -36,8 +36,8 @@ function fire_ajax_submit() {
     $.ajax({
         type: "POST",
         url: "/main/add/band",
-        //data: JSON.stringify(search),
-        data: $("#addTime").serialize(),
+        data: JSON.stringify(search),
+        //data: $("#addTime").serialize(),
         contentType: "application/json; charset=utf-8",
         dataType: 'json',
         //cache: false,
