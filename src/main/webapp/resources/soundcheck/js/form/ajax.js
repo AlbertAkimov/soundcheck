@@ -1,43 +1,13 @@
-function testAjax() {
-
-    var nameBand = $("#name").val();
-    var dateBand = $("#dateBand").val();
-
-    var json = {"nameBand" : nameBand, "dateBand" : dateBand};
-
-    $.ajax({
-       url: $("#addTme").attr("action"),
-        data: JSON.stringify(json),
-        type: "POST",
-
-        beforeSend: function(xhr) {
-            $("#bandInformation").html("Loading");
-        },
-
-        success: function (jr) {
-            var respContent = "";
-
-            respContent += "<span class='has-error'>name band is: [";
-            respContent += jr + "]</span>";
-
-            $("#bandInformation").html(respContent);
-        }
-    });
-}
-
-function validationAjax () {
-
-    $.ajax({
-        url: "/validate",
-        data: ({band : $("#name").val()}),
-        success: function(data) {
-            $("#bandInformation").html(data);
-        }
-    });
-}
 
 
-// new test ajax
+
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+
+$(document).ajaxSend(function (e, xhr, options) {
+    xhr.setRequestHeader(header, token);
+});
+
 
 $(document).ready(function () {
 
@@ -59,18 +29,18 @@ function fire_ajax_submit() {
     search["dateBand"] = $("#dateBand").val();
     search["startTime"] = $("#startTime").val();
     search["endTime"] = $("#endTime").val();
-    //search["email"] = $("#email").val();
+    search["email"] = $("#email").val();
 
     $("#addBand").prop("disabled", true);
 
     $.ajax({
         type: "POST",
-        contentType: "application/json",
         url: "/main/add/band",
-        data: JSON.stringify(search),
+        data: JSON.stringify({ band : search}),
+        contentType: "application/json; charset=utf-8",
         dataType: 'json',
-        cache: false,
-        timeout: 600000,
+        //cache: false,
+        //timeout: 600000,
         success: function (data) {
 
             var json = "<h4>Ajax Response</h4><pre>"

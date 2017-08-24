@@ -23,6 +23,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_csrf" content="${_csrf.token}">
+    <meta name="_csrf_header" content="${_csrf.headerName}">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -332,6 +334,7 @@
 
 
 <div class="clear"></div>
+<c:url var="addAction" value="/main/add/band"/>
 <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor03"></div>
@@ -339,72 +342,65 @@
             <h1>Работать с нами</h1>
             <div class="spacer"></div>
 
-            <form class="peThemeContactForm form" id="addTime">
+            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band" id="addTime">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="container">
-                        <div class="controls name">
-                            <h2>Имя группы</h2>
-                            <input id="name" name="nameBand"/>
-                            <div id="bandInformation" class="has-error"></div>
+                            <div class="controls name">
+                                <h2>Имя группы</h2>
+                                <form:input path="nameBand" id="name"/>
+                                <div id="bandInformation" class="has-error"></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls email">
-                            <h2>Желаемая дата</h2>
-                                <input id="dateBand" name="dateBand"/>
+                        <div class="control-group">
+                            <div class="controls email">
+                                <h2>Желаемая дата</h2>
+                                    <form:input path="dateBand" id="dateBand"/>
+                                    <form:errors path="dateBand" cssClass="has-error"/>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="container">
-                        <div class="controls name">
-                            <h2>Время(c)</h2>
-                                <input id="startTime" name="startTime"/>
+                            <div class="controls name">
+                                <h2>Время(c)</h2>
+                                    <form:input path="startTime" id="startTime"/>
+                                    <form:errors path="startTime" cssClass="has-error" id="test"/>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls email">
-                            <h2>Время(до)</h2>
-                                <input id="endTime" name="endTime"/>
+                        <div class="control-group">
+                            <div class="controls email">
+                                <h2>Время(до)</h2>
+                                    <form:input path="endTime" id="endTime"/>
+                                    <form:errors path="endTime" cssClass="has-error"/>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="controls view">
                             <h2>Вид деятельности</h2>
-                            <select id="view" type="text">
-                                <option type="text" value="Репетиция" id="name">Репетиция</option>
-                                <option type="text" value="Запись" id="name">Запись</option>
-                                <option type="text" value="Другое" id="name">Другое</option>
-                            </select>
+                            <form:select path="comment" id="view" type="text">
+                                <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
+                                <form:option type="text" value="Запись" id="name">Запись</form:option>
+                                <form:option type="text" value="Другое" id="name">Другое</form:option>
+                            </form:select>
                         </div>
                     </div>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <div class="control-group">
                         <div class="controls send-btn">
                             <button class="contour-btn red buttoncontact" id="addBand">Готово</button>
                         </div>
                     </div>
                 </div>
-            </form>
+            </form:form>
 
         </div>
         <div class="square-bg"></div>
         <div class="overlay"></div>
     </div>
 </section><!-- end Contact -->
-<div class="clear"></div>
-
-<section id="quotes" class="full-wrapper parallax-wrapper quotes"> <!-- Twitter Quotes -->
-    <div class="parallax" data-velocity="-.3" data-fit="0">
-        <div class="twitter-quotes"></div>
-        <div id="myTweet"></div>
-        <div class="overlay"></div>
-    </div>
-</section><!-- end Twitter Quotes -->
 <div class="clear"></div>
 
 <div id="anchor04"></div>
