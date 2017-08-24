@@ -66,7 +66,7 @@ function fire_ajax_submit() {
     $.ajax({
         type: "POST",
         contentType: "application/json",
-        url: "/main/add",
+        url: "/main/add/band",
         data: JSON.stringify(search),
         dataType: 'json',
         cache: false,

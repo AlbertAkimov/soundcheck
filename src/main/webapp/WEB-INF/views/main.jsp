@@ -48,7 +48,7 @@
 
     <!-- Scripts JS -->
     <script src="${contextPath}/resources/soundcheck/js/vendor/modernizr-2.6.2.min.js"></script>
-    <script src="${contextPath}/resources/soundcheck/js/form/ajax.js"></script>
+
 
     <!-- links for datepicker -->
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/datepicker/jquery.datetimepicker.css"/>
@@ -382,6 +382,7 @@
                             </select>
                         </div>
                     </div>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <div class="control-group">
                         <div class="controls send-btn">
                             <button class="contour-btn red buttoncontact" id="addBand">Готово</button>
@@ -604,8 +605,8 @@
 </section>
 
 <!-- Scripts JS -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <script src="${contextPath}/resources/soundcheck/js/jquery-1.11.0.min.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
 <script src="${contextPath}/resources/soundcheck/js/jquery.isotope.min.js"></script>
@@ -624,6 +625,7 @@
 <script src="${contextPath}/resources/soundcheck/js/plugins.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/sonorama.js"></script>
 <script src="${contextPath}/resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
+<script src="${contextPath}/resources/soundcheck/js/form/ajax.js"></script>
 <script>
     $('#endTime').datetimepicker({
         datepicker:false,
