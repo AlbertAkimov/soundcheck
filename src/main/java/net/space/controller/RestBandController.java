@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,7 +37,8 @@ public class RestBandController {
     }
 
     @PostMapping("/main/add/band")
-    public ResponseEntity<?> addBand(@ModelAttribute(value = "band") Band band, Errors errors) {
+    public @ResponseBody
+    ResponseEntity<?> addBand(@ModelAttribute(value = "band") Band band, Errors errors) {
 
         bandValidator.validate(band, errors);
 
