@@ -11,7 +11,7 @@ $(document).ajaxSend(function (e, xhr, options) {
 
 $(document).ready(function () {
 
-    $("#addTime").submit(function (event) {
+    $("#add-time").submit(function (event) {
 
         //stop submit the form, we will post it manually.
         event.preventDefault();
@@ -24,42 +24,40 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
-    var search = {};
-    search["nameBand"] = $("#name").val();
-    search["dateBand"] = $("#dateBand").val();
-    search["startTime"] = $("#startTime").val();
-    search["endTime"] = $("#endTime").val();
-    search["email"] = $("#email").val();
+    var band = {};
+    band["nameBand"] = $("#name").val();
+    band["dateBand"] = $("#date-band").val();
 
-    $("#addBand").prop("disabled", true);
+    //search["email"] = $("#email").val();
+
+    $("#add-time").prop("disabled", true);
 
     $.ajax({
         type: "POST",
+        contentType: "application/json",
         url: "/main/add/band",
-        data: JSON.stringify(search),
-        //data: $("#addTime").serialize(),
-        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(band),
         dataType: 'json',
-        //cache: false,
-        //timeout: 600000,
+        cache: false,
+        timeout: 600000,
         success: function (data) {
 
             var json = "<h4>Ajax Response</h4><pre>"
                 + JSON.stringify(data, null, 4) + "</pre>";
-            $('#bandInformation').html(json);
+            $('#feedback').html(json);
 
             console.log("SUCCESS : ", data);
-            $("#addBand").prop("disabled", false);
+            $("#add-band").prop("disabled", false);
 
         },
         error: function (e) {
 
             var json = "<h4>Ajax Response</h4><pre>"
                 + e.responseText + "</pre>";
-            $('#bandInformation').html(json);
+            $('#feedback').html(json);
 
             console.log("ERROR : ", e);
-            $("#addBand").prop("disabled", false);
+            $("#add-band").prop("disabled", false);
 
         }
     });

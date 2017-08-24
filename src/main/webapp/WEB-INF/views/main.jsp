@@ -334,7 +334,6 @@
 
 
 <div class="clear"></div>
-<c:url var="addAction" value="/main/add/band"/>
 <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor03"></div>
@@ -342,21 +341,20 @@
             <h1>Работать с нами</h1>
             <div class="spacer"></div>
 
-            <form:form cssClass="peThemeContactForm form" action="${addAction}" commandName="band" id="addTime">
+            <form class="peThemeContactForm form" id="add-time">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="container">
                             <div class="controls name">
                                 <h2>Имя группы</h2>
-                                <form:input path="nameBand" id="name"/>
-                                <div id="bandInformation" class="has-error"></div>
+                                <input id="name"/>
+                                <div id="feedback" class="has-error"></div>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Желаемая дата</h2>
-                                    <form:input path="dateBand" id="dateBand"/>
-                                    <form:errors path="dateBand" cssClass="has-error"/>
+                                    <input id="date-band" class="date-picker"/>
                             </div>
                         </div>
                     </div>
@@ -365,15 +363,13 @@
                         <div class="container">
                             <div class="controls name">
                                 <h2>Время(c)</h2>
-                                    <form:input path="startTime" id="startTime"/>
-                                    <form:errors path="startTime" cssClass="has-error" id="test"/>
+                                    <input id="startTime"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Время(до)</h2>
-                                    <form:input path="endTime" id="endTime"/>
-                                    <form:errors path="endTime" cssClass="has-error"/>
+                                    <input id="endTime"/>
                             </div>
                         </div>
                     </div>
@@ -381,20 +377,21 @@
                     <div class="control-group">
                         <div class="controls view">
                             <h2>Вид деятельности</h2>
-                            <form:select path="comment" id="view" type="text">
-                                <form:option type="text" value="Репетиция" id="name">Репетиция</form:option>
-                                <form:option type="text" value="Запись" id="name">Запись</form:option>
-                                <form:option type="text" value="Другое" id="name">Другое</form:option>
-                            </form:select>
+                            <select path="comment" id="view" type="text">
+                                <option type="text" value="Репетиция" id="name">Репетиция</option>
+                                <option type="text" value="Запись" id="name">Запись</option>
+                                <option type="text" value="Другое" id="name">Другое</option>
+                            </select>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button class="contour-btn red buttoncontact" id="addBand">Готово</button>
+                            <button class="contour-btn red buttoncontact" id="add-band">Готово</button>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </div>
                 </div>
-            </form:form>
+            </form>
 
         </div>
         <div class="square-bg"></div>
@@ -623,18 +620,18 @@
 <script src="${contextPath}/resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/form/ajax.js"></script>
 <script>
-    $('#endTime').datetimepicker({
+    $('#endTimes').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
-    $('#startTime').datetimepicker({
+    $('#startTimes').datetimepicker({
         datepicker:false,
         format:'H:i'
     });
 
     jQuery.datetimepicker.setLocale('de');
 
-    jQuery('#dateBand').datetimepicker({
+    jQuery('#date-picker').datetimepicker({
         i18n:{
             de:{
                 months:[

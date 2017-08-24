@@ -1178,7 +1178,7 @@ p.user, p.timePosted, p.interact{display: none;}
 	width: 48%;
 	float: right;
 }
-.dateBand{
+.date-band{
 	width: 48%;
 	float: right;
 }
@@ -1187,8 +1187,8 @@ p.user, p.timePosted, p.interact{display: none;}
 	display: inline-block;
 	width: 48%;
 }
-.form #name, .form #email, .form #startTime, .form #endTime, .form #dateBand, form #view{height: 50px;}
-#comments, #name, #email, #startTime, #endTime, #dateBand, #view{
+.form #name, .form #email, .form #startTime, .form #endTime, .form #date-band, form #view{height: 50px;}
+#comments, #name, #email, #startTime, #endTime, #date-band, #view{
 	width: 100%;
 	background: none;
 	color: #fff;
