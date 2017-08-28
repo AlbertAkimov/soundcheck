@@ -75,7 +75,14 @@ public class BandDaoImpl implements BandDao {
 
         LOGGER.info("List band successfully loaded.");
 
-        for(Band band : listBand) {
+        for(Band band : listBand) { //todo тут убирать милисекунды не приемлемо, нужно найти другое решение.
+
+            String startTime = band.getStartTime().substring(0,5);
+            String endTime = band.getEndTime().substring(0,5);
+
+            band.setStartTime(startTime);
+            band.setEndTime(endTime);
+
             LOGGER.info("List Band: " + band);
         }
 

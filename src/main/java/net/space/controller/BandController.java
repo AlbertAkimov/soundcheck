@@ -2,7 +2,7 @@ package net.space.controller;
 
 import net.space.model.Band;
 import net.space.service.BandService;
-import net.space.utilities.constants.BandBreakADate;
+import net.space.utilities.constants.BandDateUtils;
 import net.space.validators.BandValidator;
 import net.space.validators.json.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +59,7 @@ public class BandController {
             jr.setResult(band);
 
             if (band.getId() == 0)
-                this.service.addBand(BandBreakADate.breakADate(band));
+                this.service.addBand(BandDateUtils.breakADate(band));
 
             else
                 this.service.updateBand(band);

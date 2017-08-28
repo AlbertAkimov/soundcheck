@@ -2,11 +2,12 @@ package net.space.controller;
 
 import net.space.model.Band;
 import net.space.service.BandService;
-import net.space.utilities.constants.BandBreakADate;
+import net.space.utilities.constants.BandDateUtils;
 import net.space.validators.BandValidator;
 import net.space.validators.json.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class RestBandController {
         this.service = service;
     }
 
-    @PostMapping("/main/add/band")
+    @PostMapping(value = "/main/add/band", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody
     ResponseEntity<?> addBand(@RequestBody Band band, Errors errors) {
 
@@ -45,13 +46,20 @@ public class RestBandController {
             jr.setStatus("FAIL");
             jr.setResult(errors.getAllErrors());
 
-            return ResponseEntity.badRequest().body(jr);
+            //return ResponseEntity.badRequest().body(jr);
         }
 
         else {
             jr.setStatus("SUCCESS");
             jr.setResult(band);
-            return ResponseEntity.ok(jr);
+
+            if(band.getId() == 0)
+                service.addBand(BandDateUtils.breakADate(band));
+
+            else
+                service.updateBand(band);
         }
+
+        return ResponseEntity.ok(jr);
     }
 }

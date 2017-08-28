@@ -56,7 +56,7 @@ section h1 {
 	width: 65px;
 	height: 3px;
 	margin: auto;
-	margin-bottom: 70px;
+	margin-bottom: 50px;
 	background: #c3121c;
 }
 
@@ -281,7 +281,7 @@ section h1 {
 	background: #c3121c;
 	position: absolute;
 	left: 381px;
-	top: 191px;
+	top: 170px;
 	
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
@@ -1352,7 +1352,7 @@ p.user, p.timePosted, p.interact{display: none;}
 	width: 1300px;
 	margin:0px auto 70px auto;
 	color:#fff;
-	font-size: 26px;
+	font-size: 20px;
 	max-width: 90%;
 	line-height: 47px;
 	text-align: left;

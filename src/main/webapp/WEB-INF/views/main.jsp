@@ -18,7 +18,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <title>Sound Check - Music Theme</title>
+    <title>Soundcheck - Music Theme</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -71,9 +71,6 @@
     <link href="${contextPath}/resources/newdatepicker/datepicker.min.css" rel="stylesheet" type="text/css">
     <script src="${contextPath}/resources/newdatepicker/datepicker.min.js"></script>
 
-    <link href="${contextPath}/resources/clock/bootstrap-clockpicker.min.css" rel="stylesheet" type="text/css">
-    <script src="${contextPath}/resources/clock/bootstrap-clockpicker.min.js"></script>
-
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -108,12 +105,12 @@
 
 <div class="full-wrapper header">
     <div class="main-logo">
-        <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>sound check<span>.</span></a>
+        <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>soundcheck<span>.</span></a>
     </div>
 
     <nav class="main-menu">
         <ul>
-            <li class="current"><a href="#anchor0">Sound Check</a></li>
+            <li class="current"><a href="#anchor0">Soundcheck</a></li>
             <li><a href="#anchor01">Новости</a></li>
             <li><a href="#anchor02">Время</a></li>
             <li><a href="#anchor03">Работать</a></li>
@@ -160,7 +157,7 @@
             <img src="../../resources/soundcheck/img/slider/sonorama.png" alt='img' />
             <div class="spacer-box"></div>
             <ul>
-                <li class="t-current"><span>Sonorama</span> is a theme for music bands, deejays, singers and any artist related with the music industry that want to show his <span>talent and sounds</span> to the world.</li>
+                <li class="t-current"><span>Soundcheck</span> это репетиционная база с возможностью студийной записи <span>для любых стилей и направлений</span> как профессиональных музыкантов, так и любителей музыки.</li>
                 <li class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <span>Lorem Ipsum</span> has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type.</li>
             </ul>
         </div>
@@ -170,11 +167,11 @@
 <div class="full-wrapper">
     <div class="player-container"> <!-- Audio Player -->
         <div class="audio-player">
-            <audio preload="none" src="../../resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
+            <audio preload="none" src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
             <ol class="home-playlist">
-                <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
-                <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
-                <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
+                <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
+                <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="/soundcheck/audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
+                <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="/soundcheck/audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
             </ol>
         </div>
     </div> <!-- end Audio Player -->
@@ -295,7 +292,7 @@
 <section id="dates" class="full-wrapper parallax-wrapper dates"> <!-- Tour Dates -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div class="front-content dates">
-            <h1>Рассписание</h1>
+            <h1>Время</h1>
             <div class="spacer"></div>
             <div class="dates-wrapper">
                 <ul>
@@ -312,10 +309,7 @@
                                         <div class="info">
                                             <div class="city">${band.nameBand}</div>
                                             <div class="place"><div class="ico"></div>${band.comment}</div>
-                                            <div class="time"><div class="ico"></div>${band.startTime} - ${band.endTime}</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="buy"><div class="ico"></div><a href="<c:url value='/edit/${band.id}'/>">Изменить</a></div>
+                                            <div class="time"><div class="ico"></div>c ${band.startTime} - до ${band.endTime}</div>
                                         </div>
                                         <div class="clear"></div>
                                     </div> <!-- end Date Info 1 -->
@@ -338,15 +332,23 @@
         <div class="overlay"></div>
     </div>
 </section><!-- end Tour Dates -->
+<div class="clear"></div>
 
+<section id="about-us" class="full-wrapper parallax-wrapper about-us">
+    <div class="parallax" data-velocity="-.3" data-fit="0">
+        <h1>Инфо</h1>
+        <div class="spacer"></div>
+        <div class="sec-content"><p>Чтобы воспользоваться нашими услугами</p></div>
 
+    </div>
+</section>
 
 <div class="clear"></div>
 <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor03"></div>
         <div class="front-content contact">
-            <h1>Работать с нами</h1>
+            <h1>Работать</h1>
             <div class="spacer"></div>
 
             <form class="peThemeContactForm form" id="add-time">
@@ -355,14 +357,16 @@
                         <div class="container">
                             <div class="controls name">
                                 <h2>Имя группы</h2>
-                                <input id="name"/>
-                                <div id="feedback" class="has-error"></div>
+                                <input id="name" name="nameBand"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Желаемая дата</h2>
-                                    <input id="date-band" class="datepicker-here" data-date-format="yyyy-mm-dd" type="date"/>
+                                    <input id="date-band" class="datepicker-here"  data-date-format="yyyy-mm-dd" type="date" name="dateBand"/>
+                                <div class="form-group">
+                                    <div id="date-error" class="has-error"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -371,13 +375,19 @@
                         <div class="container">
                             <div class="controls name">
                                 <h2>Время(c)</h2>
-                                    <input id="startTime" class="input-group clockpicker"/>
+                                    <input id="startTime" type="time" name="startTime"/>
+                                <div class="form-group">
+                                    <div id="start-time" class="has-error"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Время(до)</h2>
-                                    <input id="endTime" class="clockpicker"/>
+                                    <input id="endTime" type="time" name="endTime"/>
+                                <div class="form-group">
+                                    <div id="end-time" class="has-error"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -396,7 +406,9 @@
                         <div class="controls send-btn">
                             <button class="contour-btn red buttoncontact" id="add-band">Готово</button>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                            <div class="form-group">
                             <div id="success" class="has-error"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -628,7 +640,7 @@
 <script src="${contextPath}/resources/soundcheck/js/sonorama.js"></script>
 <script src="${contextPath}/resources/datepicker/build/jquery.datetimepicker.full.min.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/form/ajax.js"></script>
-<script>
+<%--<script>
     $('#endTimes').datetimepicker({
         datepicker:false,
         format:'H:i'
@@ -657,9 +669,13 @@
         timepicker:false,
         format:'d-m-Y'
     });
-</script>
-<script type="text/javascript">
-    $('.clockpicker').clockpicker();
-</script>
+</script>--%>
+<%--<script>
+    $("#test").datepicker({
+        // Можно выбрать тольо даты, идущие за сегодняшним днем, включая сегодня
+        minDate: new Date()
+    })
+</script>--%>
+
 </body>
 </html>

@@ -31,46 +31,63 @@ function fire_ajax_submit() {
     band["endTime"] = $("#endTime").val();
     band["comment"] = $("#view").val();
 
-    //search["email"] = $("#email").val();
+    if( band.nameBand === "" ||
+        band.dateBand === "" ||
+        band.startTime === "" ||
+        band.endTime === "") {
 
-    $("#add-time").prop("disabled", true);
+        return;
+    }
 
-    $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: "/main/add/band",
-        data: JSON.stringify(band),
-        dataType: 'json',
-        cache: false,
-        timeout: 600000,
-        success: function (data) {
+    else {
+        $("#add-time").prop("disabled", true);
 
-            if(data.status === "SUCCESS") {
-                $('#success').html("Заявка принята, спасибо.");
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/main/add/band",
+            data: JSON.stringify(band),
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function (data) {
+
+                if (data.status === "SUCCESS") {
+                    $('#success').html("Ваша заявка принята, спасибо.");
+                    $('#start-time').html("");
+                    $('#end-time').html("");
+                    $('#date-error').html("");
+                }
+
+                else {
+                    for (i = 0; data.result.length; i++) {
+
+                        if (data.result[i].field === "startTime") {
+                            $('#start-time').html(data.result[i].code);
+                        }
+
+                        if (data.result[i].field === "endTime") {
+                            $('#end-time').html(data.result[i].code);
+                        }
+
+                        if (data.result[i].field === "dateBand") {
+                            $("#date-error").html(data.result[i].code);
+                        }
+                    }
+
+                    $("#success").html("Ошибка обработки запроса.")
+                }
+            },
+            error: function (e) {
+
+                var json = "<h4>Ajax Response</h4><pre>"
+                    + e.responseText + "</pre>";
+                $('#success').html(json);
+
+                console.log("ERROR : ", e);
+                $("#add-band").prop("disabled", false);
+
             }
-
-            else {
-                $('#success').html("Ошибка");
-            }
-
-            //var json = "<h4>Ajax Response</h4><pre>"
-               // + JSON.stringify(data, null, 4) + "</pre>";
-            //$('#feedback').html(json);
-
-            //console.log("SUCCESS : ", data);
-            //$("#add-band").prop("disabled", false);
-
-        },
-        error: function (e) {
-
-            var json = "<h4>Ajax Response</h4><pre>"
-                + e.responseText + "</pre>";
-            $('#feedback').html(json);
-
-            console.log("ERROR : ", e);
-            $("#add-band").prop("disabled", false);
-
-        }
-    });
-
+        });
+    }
 }

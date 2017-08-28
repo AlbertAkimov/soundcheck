@@ -35,7 +35,8 @@
 	* Validator for form addBand
 	* */
 	$ (function () {
-    $("#addTime").validate({
+
+    $("#add-time").validate({
 
         rules: {
             nameBand: {
@@ -44,7 +45,8 @@
             },
 
             dateBand: {
-            	required: true
+            	required: true,
+                checkDate: true
 			},
 
 			startTime: {
@@ -52,7 +54,8 @@
 			},
 
 			endTime: {
-            	required: true
+            	required: true,
+                checkTime: true
 			}
         },
 		messages:{
@@ -78,6 +81,48 @@
 		focusInvalid: false
     });
 	});
+
+	/*Добавление правила валидации в плагин JQuery для сравнения сремя начала и время завершения*/
+
+	$.validator.addMethod("checkTime", function(val, el, args){
+		var startTime = $("#startTime").val();
+
+		var start = Number(startTime.substr(0,2));
+		var end = Number(val.substr(0, 2));
+
+		if(start > end)
+			return false;
+		return true;
+	}, "Ошибка! Поле Время(до) не может быть меньше поля Время(с)");
+
+	$.validator.addMethod("checkDate", function(val, el, args){
+		var dateBand = new Date(Date.parse(val));
+		var currentDate = new Date();
+
+		currentDate.setHours(0,0,0,0);
+
+		if(dateBand < currentDate) {
+			return false;
+		}
+		return true;
+	}, "Ошибка! Выбранная дата не может быть меньше текущей"
+	);
+
+/*	$(document).ready(function() {
+		var validStartTime = false;
+		var validEndTime = false;
+
+		$("form").submit(function (event) {
+			event.preventDefault();
+
+
+            var checkStartTime = $("#startTime").val();
+            var checkEndTime = $("#endTime").val();
+
+            var start = Number(checkEndTime.substr(0, 2));
+            var end = Number(checkStartTime.substr(0, 2));
+        })
+	});*/
 
 	
 	/* Loading */

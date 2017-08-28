@@ -13,7 +13,7 @@ import java.util.Date;
  * @Info empty
  */
 
-public class BandBreakADate {
+public class BandDateUtils {
 
     public static Band breakADate(Band band) {
         band.setCreateDate(new Date());
@@ -25,19 +25,15 @@ public class BandBreakADate {
         return band;
     }
 
-    public static int getDiffTimes(String startTime, String endTime) {
+    private static int getDiffTimes(String startTime, String endTime) {
         int start = Integer.valueOf(startTime.substring(0,2));
         int end = Integer.valueOf(endTime.substring(0,2));
         int difference = (end - start);
-
-        Assert.assertNotEquals(start, end);
 
         boolean indicator = false;
 
         if(difference != 0)
             indicator = true;
-
-        Assert.assertTrue(indicator);
 
         return difference;
     }

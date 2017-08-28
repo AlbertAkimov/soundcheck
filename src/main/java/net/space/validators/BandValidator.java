@@ -42,15 +42,16 @@ public class BandValidator implements Validator {
                 if(dateFormat.format(band.getDateBand()).equals(dateFormat.format(iBand.getDateBand()))) {
 
                     if(band.getStartTime().equals(iBand.getStartTime().substring(0, 5))) {
-                        errors.rejectValue("startTime", "Time.Already.Exist");
-                        break;
+                        errors.rejectValue("startTime", "Для выбранной даты это время уже используется.");
                     }
 
                     if(band.getEndTime().equals(iBand.getEndTime().substring(0, 5))){
-                        errors.rejectValue("endTime", "Time.Already.Exist");
-                        break;
+                        errors.rejectValue("endTime", "Для выбранной даты это время уже используется.");
                     }
                 }
+
+                if(errors.hasErrors())
+                    break;
 
             }
 
