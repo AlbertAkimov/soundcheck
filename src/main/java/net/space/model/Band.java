@@ -26,8 +26,8 @@ public class Band {
     private Date createDate;
 
     @Column(name = "DATE_BAND")
-    //@Temporal(TemporalType.DATE)
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    //@DateTimeFormat(iso = DateTimeFormat.ISO.DATE, pattern = "yyyy-MM-dd")
     private Date dateBand;
 
     @Column(name = "DAY")
@@ -54,21 +54,14 @@ public class Band {
     @Column(name = "COMMENT")
     private String comment;
 
+    @Column(name = "USER_ID")
+    private long userID;
+
+    @Column(name = "PRICE")
+    private int price;
+
     public Band() {}
 
-    public Band(Date createDate, Date dateBand, int day, String month, int year,
-                String nameBand, String startTime, String endTime, int countHours, String comment) {
-        this.createDate = createDate;
-        this.dateBand = dateBand;
-        this.day = day;
-        this.month = month;
-        this.year = year;
-        this.nameBand = nameBand;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.countHours = countHours;
-        this.comment = comment;
-    }
 
     public int getId() {
         return id;
@@ -158,6 +151,22 @@ public class Band {
         this.comment = comment;
     }
 
+    public long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Band{" +
@@ -172,6 +181,8 @@ public class Band {
                 ", endTime='" + endTime + '\'' +
                 ", countHours=" + countHours +
                 ", comment='" + comment + '\'' +
+                ", userID=" + userID +
+                ", price=" + price +
                 '}';
     }
 }

@@ -18,6 +18,7 @@ public class BandDateUtils {
     public static Band breakADate(Band band) {
         band.setCreateDate(new Date());
         band.setCountHours(getDiffTimes(band.getStartTime(), band.getEndTime()));
+        band.setPrice(band.getCountHours() * 250); //todo вынести отсюда!
         band.setYear(DateUtils.getYear(band.getDateBand()));
         band.setMonth(DateUtils.getMonthName(band.getDateBand()));
         band.setDay(DateUtils.getDay(band.getDateBand()));

@@ -84,7 +84,7 @@
 	.mob-no {display:none;}
 	.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
 	position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;}
-	.container {width:700px;max-width:700px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
+	.my {width:700px;max-width:700px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
 	.grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {float: left;width: 90%;}
 	.side-widget ul {padding: 0px;position: relative;left: 15px;}
 	.comment-form input {width: 91.5%;}
@@ -123,7 +123,7 @@
 	.itunes:after{content: "/";color: #c3121c;float: right;font-weight: bold;font-size: 22px;position: relative;right: 1px;top: 2px;width: 5px;background: none;}
 	.beatport:after {content: "/";color: #c3121c;float: right;font-weight: bold;font-size: 22px;position: relative;right: 1px;top: -2px;width: 5px;background: none;}
 	.mob-no {display:none;}
-	.container {width:400px;max-width:400px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
+	.my {width:400px;max-width:400px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
 	.dates-nav{display: none;}
 	.main-wrapper {width: 400px;}
 	.last-news-container {width: 300px;}
@@ -241,7 +241,7 @@
 	.disc-date {font-size: 15px; margin-bottom: 25px;}
 	.close-btn {right: 0;}
 	.project-content {width: 300px;}
-	.container {width:300px;max-width:300px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
+	.my {width:300px;max-width:300px;padding-right: 12px;padding-left: 12px;margin-right: auto;margin-left: auto;}
 	.comment-form input {width: 80.5%;}
 	.comment-form textarea {width: 80.5%;}
 	.o-mob {display:block;}

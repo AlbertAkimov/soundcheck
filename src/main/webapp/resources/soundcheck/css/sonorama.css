@@ -56,7 +56,7 @@ section h1 {
 	width: 65px;
 	height: 3px;
 	margin: auto;
-	margin-bottom: 50px;
+	margin-bottom: 25px;
 	background: #c3121c;
 }
 
@@ -1385,4 +1385,14 @@ p.user, p.timePosted, p.interact{display: none;}
 
 .form-group {
 	margin-bottom: 15px
+}
+
+.text-center {
+	text-align: center;
+	color: #fff;
+}
+
+.text-center p{
+	text-align: center;
+	color: #fff;
 }

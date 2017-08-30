@@ -42,7 +42,7 @@ public class UserController {
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
         userValidator.validate(userForm, bindingResult);
 
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors()) { // todo переделать на ajax запрос
             return "registration";
         }
 

@@ -46,6 +46,13 @@ public class BandController {
         return "main";
     }
 
+    @RequestMapping(value = "/fulllist", method = RequestMethod.GET)
+    public String fulllist(Model model) {
+        model.addAttribute("band", new Band());
+        model.addAttribute("listBand", this.service.listBand());
+        return "fulllist";
+    }
+
     @RequestMapping(value = "/main/add", method = RequestMethod.POST)
     public @ResponseBody JsonResponse addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
 
@@ -70,12 +77,6 @@ public class BandController {
         }
 
         return jr;
-    }
-
-    @RequestMapping(value = "/validate", method = RequestMethod.GET)
-    public @ResponseBody String testing(@RequestParam String band) {
-
-        return "hello";
     }
 
     @RequestMapping(value = "/remove/{id}")

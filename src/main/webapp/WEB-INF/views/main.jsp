@@ -108,6 +108,10 @@
         <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>soundcheck<span>.</span></a>
     </div>
 
+    <form id="logoutForm" method="POST" action="${contextPath}/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
     <nav class="main-menu">
         <ul>
             <li class="current"><a href="#anchor0">Soundcheck</a></li>
@@ -117,7 +121,7 @@
             <li><a href="#anchor04">Галерея</a></li>
             <li><a href="#anchor05">Контакты</a></li>
             <li><a href="${pageContext.request.contextPath}/login">${pageContext.request.userPrincipal.name}</a></li>
-            <li><a href="${pageContext.request.contextPath}/logout">Выйти</a></li>
+            <%--<li><a onclick="document.forms['logoutForm'].submit()">Выйти</a></li>--%>
         </ul>
     </nav>
 
@@ -169,9 +173,9 @@
         <div class="audio-player">
             <audio preload="none" src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
             <ol class="home-playlist">
-                <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
-                <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="/soundcheck/audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
-                <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="/soundcheck/audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
+                <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
+                <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="${contextPath}/resources/soundcheck/audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
+                <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="${contextPath}/resources/soundcheck/audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
             </ol>
         </div>
     </div> <!-- end Audio Player -->
@@ -289,30 +293,32 @@
 </div><!-- end Main Wrapper -->
 
 <div id="anchor02"></div>
+<div id="albert">
 <section id="dates" class="full-wrapper parallax-wrapper dates"> <!-- Tour Dates -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div class="front-content dates">
             <h1>Время</h1>
             <div class="spacer"></div>
+                <p><a href="${contextPath}/fulllist" style="color: orangered">Подробнее</a></p>
             <div class="dates-wrapper">
                 <ul>
                     <c:if test="${!empty listBand}">
                         <c:forEach items="${listBand}" var="listBands" varStatus="test">
                             <li>
                                 <c:forEach items="${listBands}" var="band">
-                                    <div class="date-box"> <!-- Date Info 1 -->
+                                    <div class="date-box">
                                         <div class="info date">
-                                            <div class="day">${band.day}</div>
-                                            <div class="month">${band.month}</div>
-                                            <div class="year">${band.year}</div>
+                                            <div class="day" id="band-day">${band.day}</div>
+                                            <div class="month" id="band-month">${band.month}</div>
+                                            <div class="year" id="band-year">${band.year}</div>
                                         </div>
                                         <div class="info">
-                                            <div class="city">${band.nameBand}</div>
-                                            <div class="place"><div class="ico"></div>${band.comment}</div>
-                                            <div class="time"><div class="ico"></div>c ${band.startTime} - до ${band.endTime}</div>
+                                            <div class="city" id="band-name">${band.nameBand}</div>
+                                            <div class="place" id="band-comment"><div class="ico"></div>${band.comment}</div>
+                                            <div class="time" id="band-time"><div class="ico"></div>c ${band.startTime} - до ${band.endTime}</div>
                                         </div>
                                         <div class="clear"></div>
-                                    </div> <!-- end Date Info 1 -->
+                                    </div>
                                 </c:forEach>
                             </li>
                         </c:forEach>
@@ -331,7 +337,8 @@
         <div class="square-bg"></div>
         <div class="overlay"></div>
     </div>
-</section><!-- end Tour Dates -->
+</section>
+</div>
 <div class="clear"></div>
 
 <section id="about-us" class="full-wrapper parallax-wrapper about-us">
