@@ -1,6 +1,3 @@
-
-
-
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
 
@@ -35,6 +32,7 @@ $(document).ready(function () {
 
 });
 
+/*Этот метод получает данные с контроллера и формирует таблицу для определённого юзера и его данных*/
 
 function get_ajax() {
     $.ajax({
@@ -81,6 +79,7 @@ function get_ajax() {
     });
 }
 
+/*Этот метод лужит для асинхронной валидации формы (проверяет дату и время из формы)*/
 function fire_ajax_submit() {
 
     var band = {};
@@ -153,6 +152,7 @@ function fire_ajax_submit() {
     }
 }
 
+/*Подмена контента при успешной заявки на сотрудничество*/
 function refresh() {
     $.ajax({
         type: "GET",
@@ -220,6 +220,55 @@ function refresh() {
 
                 $("#albert").html(json);
                 loadCarousel();
+            }
+        }
+    });
+}
+
+$(document).ready(function () {
+
+    $("#contact22").submit(function (event) {
+
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+
+        getMessage();
+
+    });
+
+});
+
+function getMessage() {
+
+    var message = {};
+
+    message["nameAuthor"] = $("#author").val();
+    message["email"] = $("#email").val();
+    message["message"] = $("#comments").val();
+
+    if(message.nameAuthor === "" ||
+        message.email === "" ||
+        message.message === "") {
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "/contact",
+        data: JSON.stringify(message),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            $("#message-send").html("");
+
+            if (data.status === "SUCCESS") {
+                $("#message-send").html("Ваше сообщение успешно отправленно!");
+            }
+
+            else {
+                $("#message-send").html("Ошибка отправки сообщения..");
             }
         }
     });

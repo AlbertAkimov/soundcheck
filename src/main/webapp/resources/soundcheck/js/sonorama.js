@@ -82,7 +82,7 @@
     });
 	});
 
-	/*Добавление правила валидации в плагин JQuery для сравнения сремя начала и время завершения*/
+	/*Добавление правила валидации в плагин JQuery для сравнения время начала и время завершения*/
 
 	$.validator.addMethod("checkTime", function(val, el, args){
 		var startTime = $("#startTime").val();
@@ -94,6 +94,8 @@
 			return false;
 		return true;
 	}, "Ошибка! Поле Время(до) не может быть меньше поля Время(с)");
+
+/*Добавление правила валидации в плагин JQuery для проверки даты*/
 
 	$.validator.addMethod("checkDate", function(val, el, args){
 		var dateBand = new Date(Date.parse(val));
@@ -107,6 +109,48 @@
 		return true;
 	}, "Ошибка! Выбранная дата не может быть меньше текущей"
 	);
+
+
+	$(function () {
+		$("#contact22").validate({
+
+			rules: {
+				author: {
+                    required: true
+				},
+
+				email: {
+                    required: true,
+					email: true
+				},
+
+				message: {
+                    required: true,
+                    maxlength: 2000
+				}
+			},
+
+			messages: {
+
+				author: {
+                    required: "Поле обязательно для заполнения"
+				},
+
+				email: {
+                    required: "Поле обязательно для заполнения",
+					email: "Некорректный email адресс"
+				},
+
+				message: {
+                    required: "Поле обязательно для заполнения",
+                    maxlength: "Сообщение не долно быть больше 2000 символов"
+				}
+
+			}
+
+		})
+
+    });
 
 /*	$(document).ready(function() {
 		var validStartTime = false;

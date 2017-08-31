@@ -172,11 +172,11 @@
     <div class="player-container"> <!-- Audio Player -->
         <div class="audio-player">
             <audio preload="none" src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
-            <ol class="home-playlist">
+<%--            <ol class="home-playlist">
                 <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
                 <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="${contextPath}/resources/soundcheck/audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
                 <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="${contextPath}/resources/soundcheck/audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
-            </ol>
+            </ol>--%>
         </div>
     </div> <!-- end Audio Player -->
 </div>
@@ -356,7 +356,7 @@
         <div id="anchor03"></div>
         <div class="front-content contact">
             <h1>Работать</h1>
-            <div class="spacer"></div>
+            <div class="spacer2"></div>
 
             <form class="peThemeContactForm form" id="add-time">
                 <div id="personal" class="bay form-horizontal">
@@ -562,7 +562,6 @@
     </div>
 </section>
 <div class="clear"></div>
-
 <section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor05"></div>
@@ -570,12 +569,12 @@
             <h1>Contact Us</h1>
             <div class="spacer"></div>
 
-            <form method="post" id="contact" class="peThemeContactForm form" action="mail.php">
+            <form method="post" id="contact22" class="peThemeContactForm form" action="${pageContext.request.contextPath}/contact">
                 <div id="personal" class="bay form-horizontal">
                     <div class="control-group">
                         <div class="controls name">
-                            <h2>Name</h2>
-                            <input class="required span9" type="text" name="author" data-fieldid="0" id="name">
+                            <h2>Имя</h2>
+                            <input class="required span9" type="text" name="author" data-fieldid="0" id="author">
                         </div>
                     </div>
                     <div class="control-group">
@@ -587,22 +586,21 @@
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="controls message">
-                            <h2>Message</h2>
+                            <h2>Сообщение</h2>
                             <textarea name="message" rows="12" class="required span9" data-fieldid="2" id="comments"></textarea>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button type="submit" class="contour-btn red buttoncontact">Send Message</button>
+                            <button type="submit" class="contour-btn red buttoncontact">Отправить сообщение</button>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         </div>
                     </div>
                 </div>
-                <div class="notifications">
-                    <div id="contactFormSent" class="formSent alert alert-success">
-                        <strong>Your Message Has Been Sent!</strong> Thank you for contacting us.</div>
-                    <div id="contactFormError" class="formError alert alert-error">
-                        <strong>Oops, An error has ocurred!</strong> See the marked fields above to fix the errors.</div>
-                </div>
+
+                        <strong>
+                            <div id="message-send" class="message-text-success"></div>
+                        </strong>
             </form>
 
         </div>
@@ -631,9 +629,9 @@
 <script src="${contextPath}/resources/soundcheck/js/jquery-1.11.0.min.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/superslides-0.6.2/dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
 <script src="${contextPath}/resources/soundcheck/js/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
-<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/jquery.hoverdir.js"></script>
-<script type="text/javascript" src="${contextPath}/resources/soundcheck/js/jquery.nav.js"></script>
+<script type="text/javascript" src="/resources/soundcheck/js/player/audio.js"></script> <!-- Audio Player -->
+<script type="text/javascript" src="/resources/soundcheck/js/jquery.hoverdir.js"></script>
+<script type="text/javascript" src="/resources/soundcheck/js/jquery.nav.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/news.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/discography.js"></script>
 <script src="${contextPath}/resources/soundcheck/js/tweets.js"></script>

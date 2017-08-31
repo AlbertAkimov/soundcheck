@@ -60,6 +60,14 @@ section h1 {
 	background: #c3121c;
 }
 
+.spacer2{
+	width: 65px;
+	height: 3px;
+	margin: auto;
+	margin-bottom: 60px;
+	background: #c3121c;
+}
+
 /* Header */
 .header{
 	height: 150px;
@@ -1164,6 +1172,12 @@ p.user, p.timePosted, p.interact{display: none;}
 	width: 48%;
 	float: left;
 }
+
+.author{
+	width: 48%;
+	float: left;
+}
+
 .email {
 	width: 48%;
 	float: right;
@@ -1187,8 +1201,8 @@ p.user, p.timePosted, p.interact{display: none;}
 	display: inline-block;
 	width: 48%;
 }
-.form #name, .form #email, .form #startTime, .form #endTime, .form #date-band, form #view{height: 50px;}
-#comments, #name, #email, #startTime, #endTime, #date-band, #view{
+.form #name, .form #email, .form #startTime, .form #endTime, .form #date-band, .form #view, .form #author{height: 50px;}
+#comments, #name, #email, #startTime, #endTime, #date-band, #view, #author{
 	width: 100%;
 	background: none;
 	color: #fff;
@@ -1394,5 +1408,11 @@ p.user, p.timePosted, p.interact{display: none;}
 
 .text-center p{
 	text-align: center;
+	color: #fff;
+}
+
+.message-text-success{
+	margin-top: 20px;
+	padding: 0 60px;
 	color: #fff;
 }
