@@ -32,13 +32,11 @@
 </head>
 <body>
 <div class="container">
+    <button class="btn btn-success" onclick="get_ajax()">Показать мои</button>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <div id="error-user"></div>
     <div id="testing">
     <table class="table table-condensed">
-        <caption>
-            <button class="btn btn-success" onclick="get_ajax()">Показать мои</button>
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-            <div id="error-user"></div>
-        </caption>
         <tr>
             <th width="30">№</th>
             <th width="120">Имя группы</th>
