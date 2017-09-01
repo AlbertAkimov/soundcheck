@@ -1,6 +1,10 @@
 package net.space.controller;
 
 import net.space.model.Contact;
+import net.space.model.User;
+import net.space.service.ContactService;
+import net.space.service.SecurityServiceImpl;
+import net.space.service.UserServiceImpl;
 import net.space.utilities.EmailAddress;
 import net.space.validators.json.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.*;
@@ -29,6 +34,20 @@ public class ContactController {
 
     private SimpleMailMessage templateMessage;
 
+    private ContactService service;
+
+    @Autowired
+    private SecurityServiceImpl securityService;
+
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    @Qualifier(value = "contactService")
+    public ContactService getService() {
+        return service;
+    }
+
     @Autowired
     @Qualifier("mailSender")
     public void setMailSender(JavaMailSender mailSender) {
@@ -44,6 +63,17 @@ public class ContactController {
     @PostMapping(value = "/contact", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody
     ResponseEntity<?> sendMessage(@RequestBody Contact contact) {
+
+            String userName = securityService.findLoggedInUsername();
+            User user = userService.findByUsername(userName);
+
+            contact.setUserID(user.getId());
+
+            if(contact.getId() == 0)
+                service.addContact(contact);
+
+            else
+                service.updateContact(contact);
 
         SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
 

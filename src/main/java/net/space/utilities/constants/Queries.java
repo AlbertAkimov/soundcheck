@@ -11,4 +11,6 @@ package net.space.utilities.constants;
 public class Queries {
 
     public static final String band = "from Band";
+
+    public static final String CONTACT_QUERY = "from Contact";
 }

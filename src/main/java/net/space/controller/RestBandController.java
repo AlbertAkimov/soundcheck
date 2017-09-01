@@ -83,8 +83,7 @@ public class RestBandController {
     @GetMapping(value = "/personal-list", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody ResponseEntity<?> getPersonalList() {
 
-        List<List<Band>> lists = this.service.listBand();
-        List<Band> result = new ArrayList<>();
+        List<Band> listBand = this.service.lists();
 
         String userName = this.securityService.findLoggedInUsername();
         JsonResponse jr = new JsonResponse();
@@ -97,17 +96,14 @@ public class RestBandController {
         }
 
         User loggedUser = this.userService.findByUsername(userName);
+        List<Band> result = new ArrayList<>();
 
-        for(List<Band> listBand : lists) {
-            List<Band> bands = new ArrayList<>();
-            bands.addAll(listBand);
 
-            for(Band band : bands) {
+            for(Band band : listBand) {
                 if (loggedUser.getId().equals(band.getUserID())) {
                     result.add(band);
                 }
             }
-        }
 
         jr.setStatus("SUCCESS");
         jr.setResult(result);

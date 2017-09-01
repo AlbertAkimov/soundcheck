@@ -68,8 +68,8 @@ public class BandDaoImpl implements BandDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<List<Band>> listBand() {
-        List<List<Band>> lists = new ArrayList<>();
 
+        List<List<Band>> lists = new ArrayList<>();
         Session session = this.sessionFactory.getCurrentSession();
         List<Band> listBand = session.createQuery(Queries.band).list();
 
@@ -105,5 +105,23 @@ public class BandDaoImpl implements BandDao {
         }
 
         return lists;
+    }
+
+    @Override
+    public List<Band> lists() {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Band> listBand = session.createQuery(Queries.band).list();
+
+        for(Band band : listBand) {
+            String startTime = band.getStartTime().substring(0,5);
+            String endTime = band.getEndTime().substring(0,5);
+
+            band.setStartTime(startTime);
+            band.setEndTime(endTime);
+
+            LOGGER.info("List band: " + band);
+        }
+
+        return listBand;
     }
 }

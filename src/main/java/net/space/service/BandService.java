@@ -23,4 +23,6 @@ public interface BandService {
     public Band getBandById(int id);
 
     public List<List<Band>> listBand();
+
+    public List<Band> lists();
 }

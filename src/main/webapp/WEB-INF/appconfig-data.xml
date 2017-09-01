@@ -63,6 +63,7 @@
         <property name="annotatedClasses">
             <list>
                 <value>net.space.model.Band</value>
+                <value>net.space.model.Contact</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -74,13 +75,22 @@
         </property>
     </bean>
 
-    <!--BookDao and BookService beans-->
+    <!--Dao-->
     <bean id="bandDao" class="net.space.dao.BandDaoImpl">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>
 
+    <bean id="contactDao" class="net.space.dao.ContactDaoImpl">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
+    </bean>
+
+    <!--Service-->
     <bean id="bandService" class="net.space.service.BandServiceImpl">
         <property name="bandDao" ref="bandDao"/>
+    </bean>
+
+    <bean id="contactService" class="net.space.service.ContactServiceImpl">
+        <property name="contactDao" ref="contactDao"/>
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager1"/>

@@ -15,8 +15,11 @@ public class Contact {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "USER_ID")
+    private long userID;
 
     @Column(name = "NAME_AUTHOR")
     private String nameAuthor;
@@ -29,10 +32,20 @@ public class Contact {
 
     public Contact() {}
 
-    public Contact(String nameAuthor, String email, String message) {
-        this.nameAuthor = nameAuthor;
-        this.email = email;
-        this.message = message;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
     }
 
     public String getNameAuthor() {
@@ -62,7 +75,9 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "nameAuthor='" + nameAuthor + '\'' +
+                "id=" + id +
+                ", userID=" + userID +
+                ", nameAuthor='" + nameAuthor + '\'' +
                 ", email='" + email + '\'' +
                 ", message='" + message + '\'' +
                 '}';

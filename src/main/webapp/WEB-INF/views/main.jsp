@@ -356,7 +356,9 @@
         <div id="anchor03"></div>
         <div class="front-content contact">
             <h1>Работать</h1>
-            <div class="spacer2"></div>
+            <div class="add-spacer-bottom">
+                <div class="spacer"></div>
+            </div>
 
             <form class="peThemeContactForm form" id="add-time">
                 <div id="personal" class="bay form-horizontal">

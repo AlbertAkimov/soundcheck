@@ -1,7 +1,6 @@
 package net.space.service;
 
 import net.space.dao.BandDao;
-import net.space.dao.BandDaoImpl;
 import net.space.model.Band;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -55,7 +54,13 @@ public class BandServiceImpl implements BandService{
         return this.bandDao.listBand();
     }
 
-    public void setBandDao(BandDaoImpl bandDao) {
-        this.bandDao = bandDao;
+    @Override
+    @Transactional
+    public List<Band> lists() {
+        return this.bandDao.lists();
     }
+
+/*    public void setBandDao(BandDaoImpl bandDao) {
+        this.bandDao = bandDao;
+    }*/
 }

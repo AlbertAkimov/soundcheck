@@ -1394,7 +1394,9 @@ p.user, p.timePosted, p.interact{display: none;}
 }
 
 .has-error {
-	color: #fff
+	margin-top: 20px;
+	padding: 0 60px;
+	color: #fff;
 }
 
 .form-group {
@@ -1415,4 +1417,8 @@ p.user, p.timePosted, p.interact{display: none;}
 	margin-top: 20px;
 	padding: 0 60px;
 	color: #fff;
+}
+
+.add-spacer-bottom {
+	margin-bottom: 35px;
 }
