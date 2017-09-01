@@ -39,7 +39,7 @@ public class ContactServiceImpl implements ContactService {
     @Override
     @Transactional
     public void removeContact(int id) {
-        this.removeContact(id);
+        this.contactDao.removeContact(id);
     }
 
     @Override

@@ -7,6 +7,7 @@ import net.space.service.SecurityServiceImpl;
 import net.space.service.UserServiceImpl;
 import net.space.utilities.EmailAddress;
 import net.space.validators.json.JsonResponse;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -14,10 +15,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import java.awt.*;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Author A.Albert
@@ -29,6 +31,8 @@ import java.awt.*;
 
 @RestController
 public class ContactController {
+
+    private static final Logger LOGGER = Logger.getLogger(ContactController.class);
 
     private JavaMailSender mailSender;
 
@@ -44,8 +48,8 @@ public class ContactController {
 
     @Autowired
     @Qualifier(value = "contactService")
-    public ContactService getService() {
-        return service;
+    public void setService(ContactService service) {
+        this.service = service;
     }
 
     @Autowired
@@ -62,34 +66,41 @@ public class ContactController {
 
     @PostMapping(value = "/contact", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody
-    ResponseEntity<?> sendMessage(@RequestBody Contact contact) {
+    ResponseEntity<?> sendMessage(@RequestBody Contact contact, Errors error) {
 
+        JsonResponse jr = new JsonResponse();
+
+        if(!error.hasErrors()) {
             String userName = securityService.findLoggedInUsername();
             User user = userService.findByUsername(userName);
 
             contact.setUserID(user.getId());
 
-            if(contact.getId() == 0)
+            if (contact.getId() == 0)
                 service.addContact(contact);
 
             else
                 service.updateContact(contact);
 
-        SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
+            SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
 
-        mailMessage.setTo(EmailAddress.TO_EMAIL_SOUNDCHECK);
-        mailMessage.setText(EmailAddress.buildMessage(contact.getMessage(), contact.getNameAuthor(), contact.getEmail()));
+            mailMessage.setTo(EmailAddress.TO_EMAIL_SOUNDCHECK);
+            mailMessage.setText(EmailAddress.buildMessage(contact.getMessage(), contact.getNameAuthor(), contact.getEmail()));
 
-        JsonResponse jr = new JsonResponse();
+            try {
+                mailSender.send(mailMessage);
+                jr.setStatus("SUCCESS");
+                jr.setResult(contact);
+                LOGGER.info("Message successfully send");
+            } catch (MailException mailException) {
+                LOGGER.info("Message send fail");
+                mailException.printStackTrace();
+            }
+        }
 
-        try {
-            mailSender.send(mailMessage);
-            jr.setStatus("SUCCESS");
-            jr.setResult(contact);
-            System.out.println("Mail sended");
-        } catch (MailException mailException) {
-            System.out.println("Mail send failed.");
-            mailException.printStackTrace();
+        else {
+            jr.setStatus("FAIL");
+            jr.setResult(error);
         }
 
 
