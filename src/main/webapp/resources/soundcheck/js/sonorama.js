@@ -41,7 +41,7 @@
         rules: {
             nameBand: {
                 required: true,
-				rangelength: [4, 14]
+				rangelength: [4, 13]
             },
 
             dateBand: {

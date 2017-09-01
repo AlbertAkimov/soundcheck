@@ -79,7 +79,7 @@ function get_ajax() {
     });
 }
 
-/*Этот метод лужит для асинхронной валидации формы (проверяет дату и время из формы)*/
+/*Этот метод для асинхронной валидации формы (проверяет дату и время из формы)*/
 function fire_ajax_submit() {
 
     var band = {};
@@ -98,6 +98,7 @@ function fire_ajax_submit() {
     }
 
     else {
+        $('#success').html("Отправка запроса..");
         $("#add-time").prop("disabled", true);
 
         $.ajax({
@@ -107,7 +108,7 @@ function fire_ajax_submit() {
             data: JSON.stringify(band),
             dataType: 'json',
             cache: false,
-            timeout: 600000,
+            timeout: 700000,
             success: function (data) {
 
                 if (data.status === "SUCCESS") {
@@ -252,6 +253,8 @@ function getMessage() {
         return;
     }
 
+    $("#message-send").html("Отправка сообщения..");
+
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -261,7 +264,6 @@ function getMessage() {
         cache: false,
         timeout: 600000,
         success: function (data) {
-            $("#message-send").html("");
 
             if (data.status === "SUCCESS") {
                 $("#message-send").html("Ваше сообщение успешно отправленно!");

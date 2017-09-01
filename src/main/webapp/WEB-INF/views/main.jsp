@@ -108,11 +108,10 @@
         <a class="symbol" href="#"><div class="navbar-brand"><ul><li></li><li></li><li></li></ul></div>soundcheck<span>.</span></a>
     </div>
 
-    <form id="logoutForm" method="POST" action="${contextPath}/logout">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form>
-
     <nav class="main-menu">
+        <form id="logoutForm" method="POST" action="${contextPath}/logout">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
         <ul>
             <li class="current"><a href="#anchor0">Soundcheck</a></li>
             <li><a href="#anchor01">Новости</a></li>
@@ -121,7 +120,7 @@
             <li><a href="#anchor04">Галерея</a></li>
             <li><a href="#anchor05">Контакты</a></li>
             <li><a href="${pageContext.request.contextPath}/login">${pageContext.request.userPrincipal.name}</a></li>
-            <%--<li><a onclick="document.forms['logoutForm'].submit()">Выйти</a></li>--%>
+            <li><a onclick="document.forms['logoutForm'].submit()" href="#">Выйти</a></li>
         </ul>
     </nav>
 
@@ -413,10 +412,12 @@
                     </div>
                     <div class="control-group">
                         <div class="controls send-btn">
-                            <button class="contour-btn red buttoncontact" id="add-band">Готово</button>
+                            <button class="contour-btn red buttoncontact" id="add-band">Отправить заявку</button>
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <div class="form-group">
-                            <div id="success" class="has-error"></div>
+                                <strong>
+                                <div id="success" class="has-error"></div>
+                                </strong>
                             </div>
                         </div>
                     </div>
@@ -568,7 +569,7 @@
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor05"></div>
         <div class="front-content contact">
-            <h1>Contact Us</h1>
+            <h1>Обратная связь</h1>
             <div class="spacer"></div>
 
             <form method="post" id="contact22" class="peThemeContactForm form" action="${pageContext.request.contextPath}/contact">
@@ -576,20 +577,20 @@
                     <div class="control-group">
                         <div class="controls name">
                             <h2>Имя</h2>
-                            <input class="required span9" type="text" name="author" data-fieldid="0" id="author">
+                            <input type="text" name="author" data-fieldid="0" id="author">
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls email">
                             <h2>Email</h2>
-                            <input class="required span9" type="email" name="email" data-fieldid="1" id="email">
+                            <input type="email" name="email" data-fieldid="1" id="email">
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="control-group">
                         <div class="controls message">
                             <h2>Сообщение</h2>
-                            <textarea name="message" rows="12" class="required span9" data-fieldid="2" id="comments"></textarea>
+                            <textarea name="message" rows="12" data-fieldid="2" id="comments"></textarea>
                         </div>
                     </div>
                     <div class="control-group">
