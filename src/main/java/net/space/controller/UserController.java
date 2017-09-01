@@ -60,7 +60,7 @@ public class UserController {
         }
 
         if (logout != null) {
-            model.addAttribute("message", "Выход из учётной записи.");
+            model.addAttribute("message", "Вы вышли из своей учётной записи");
         }
 
         return "login";
