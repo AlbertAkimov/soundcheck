@@ -53,6 +53,13 @@ public class BandController {
         return "fulllist";
     }
 
+    @RequestMapping(value = "/personal-page", method = RequestMethod.GET)
+    public String getPersonalPage(Model model) {
+        model.addAttribute("listBand", this.service.listBand()); //todo Тут нужно показывать только заявки авторизованного юзера (это ж личный кабинет а не хрень какая то)
+
+        return "personalPage";
+    }
+
     @RequestMapping(value = "/main/add", method = RequestMethod.POST)
     public @ResponseBody JsonResponse addBand(@ModelAttribute(value = "band") Band band, BindingResult bindingResult) {
 
