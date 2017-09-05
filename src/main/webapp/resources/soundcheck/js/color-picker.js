@@ -21,7 +21,7 @@ $(document).ready(function(){
     setTimeout(function(){
     jQuery('.color-picker').animate({ "right": "-223px" }, "slow" );}, 4000);
 	
-	var currentColor = 'red';
+	var currentColor = 'green';
 	$('body').addClass(currentColor);
 
 	$('.picker-blue').click(function(){

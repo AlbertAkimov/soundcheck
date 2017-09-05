@@ -1,7 +1,8 @@
 package net.space.controller;
 
 import net.space.model.Band;
-import net.space.service.BandService;
+import net.space.model.User;
+import net.space.service.*;
 import net.space.utilities.constants.BandDateUtils;
 import net.space.validators.BandValidator;
 import net.space.validators.json.JsonResponse;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author A.Albert
@@ -33,6 +36,12 @@ public class BandController {
     @Autowired
     private BandValidator bandValidator;
 
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Autowired
+    private SecurityServiceImpl securityService;
+
     @Autowired(required = true)
     @Qualifier(value = "bandService")
     public void setService(BandService service) {
@@ -40,22 +49,28 @@ public class BandController {
     }
 
     @RequestMapping(value = {"/", "/main"}, method = RequestMethod.GET)
-    public String listBook(Model model) {
+    public String listBand(Model model) {
         model.addAttribute("band", new Band());
         model.addAttribute("listBand", this.service.listBand());
         return "main";
     }
 
-    @RequestMapping(value = "/fulllist", method = RequestMethod.GET)
-    public String fulllist(Model model) {
-        model.addAttribute("band", new Band());
-        model.addAttribute("listBand", this.service.listBand());
-        return "fulllist";
-    }
-
     @RequestMapping(value = "/personal-page", method = RequestMethod.GET)
     public String getPersonalPage(Model model) {
-        model.addAttribute("listBand", this.service.listBand()); //todo Тут нужно показывать только заявки авторизованного юзера (это ж личный кабинет а не хрень какая то)
+
+        List<Band> result = this.service.lists();
+
+        String userName = this.securityService.findLoggedInUsername();
+        User user = this.userService.findByUsername(userName);
+
+        List<Band> bandList = new ArrayList<>();
+
+        for(Band band : result) {
+            if(user.getId().equals(band.getUserID()))
+                bandList.add(band);
+        }
+
+        model.addAttribute("listBand", bandList);
 
         return "personalPage";
     }
@@ -99,14 +114,6 @@ public class BandController {
         model.addAttribute("listBand", this.service.listBand());
 
         return "bands";
-    }
-
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, new CustomDateEditor(
-                dateFormat, true));
     }
 }
 

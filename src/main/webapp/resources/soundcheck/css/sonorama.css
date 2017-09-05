@@ -1147,6 +1147,42 @@ p.user, p.timePosted, p.interact{display: none;}
 	-webkit-background-size: cover !important;
 	-khtml-background-size: cover !important;
 }
+
+/**/
+.registration-band .parallax {
+	background: url(../img/parallax/02.jpg) 50% 0% repeat-y fixed;
+	background-color: #333333;
+	margin: 0;
+	height: 850px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	/*	background-size: 100%;*/
+
+	-moz-background-size: cover !important;
+	-o-background-size: cover !important;
+	-webkit-background-size: cover !important;
+	-khtml-background-size: cover !important;
+}
+
+.parallax-wrapper.registration-band {
+	height: 850px;
+	position: relative;
+	width: 100% !important;
+	/*min-width: 1000px;*/
+	margin: 0;
+	padding: 0;
+	margin-top: 150px;
+}
+.front-content.registration-band{
+	width: 520px;
+	margin-left: -260px;
+}
+
+/**/
+
 .parallax-wrapper.contact {
 	height: 850px;
     position: relative;

@@ -21,9 +21,11 @@
     <link href="${contextPath}/resources/soundcheck/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="container">
+    <h1>Личный кабинет</h1>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    <div id="testing">
+    <div id="testing2">
         <table class="table table-condensed">
             <tr>
                 <th width="30">№</th>
@@ -34,8 +36,7 @@
                 <th width="50">Кол-во часов</th>
                 <th width="100">Деятельность</th>
             </tr>
-            <c:forEach items="${listBand}" var="listBands" varStatus="test">
-                <c:forEach items="${listBands}" var="band">
+                <c:forEach items="${listBand}" var="band">
                     <tr>
                         <td id="t-id">${band.id}</td>
                         <td id="t-nameBand">${band.nameBand}</td>
@@ -46,7 +47,6 @@
                         <td id="t-comment">${band.comment}</td>
                     </tr>
                 </c:forEach>
-            </c:forEach>
         </table>
     </div>
 </div>

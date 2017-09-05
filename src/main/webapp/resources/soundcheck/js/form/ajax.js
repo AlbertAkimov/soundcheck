@@ -19,7 +19,7 @@ $(document).ready(function () {
 
 });
 
-$(document).ready(function () {
+/*$(document).ready(function () {
 
     $("#get-personal").submit(function (event) {
 
@@ -30,7 +30,7 @@ $(document).ready(function () {
 
     });
 
-});
+});*/
 
 /*Этот метод получает данные с контроллера и формирует таблицу для определённого юзера и его данных*/
 
@@ -46,7 +46,7 @@ function get_ajax() {
             $("#testing").html("");
 
             if(data.status === "SUCCESS") {
-                var json = "<table class='table'>" +
+                var json = "<table class='table table-condensed'>" +
                     "<tr>" +
                     "<th width='30'>№</th>" +
                     "<th width='120'>Имя группы</th>" +

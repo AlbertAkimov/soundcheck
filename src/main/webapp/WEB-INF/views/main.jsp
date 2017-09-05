@@ -171,11 +171,11 @@
     <div class="player-container"> <!-- Audio Player -->
         <div class="audio-player">
             <audio preload="none" src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3"></audio>
-<%--            <ol class="home-playlist">
+            <ol class="home-playlist">
                 <li class="playing"><a href="#" data-track="Daft Punk - Giorgio Moroder Stellar Dreams Remix" data-src="${contextPath}/resources/soundcheck/audio/mp3/Daft_Punk_Giorgio_by_Moroder_Stellar_Dreams_Remix.mp3">dead wrong intro</a></li>
                 <li><a href="#" data-track="Nightcrawler - Genesis (Feat Dana Jean Phoenix)" data-src="${contextPath}/resources/soundcheck/audio/mp3/nightcrawler_genesis_feat-dana-jean-phoenix.mp3">juicy-r</a></li>
                 <li><a href="#" data-track="Yosef The Soul - Run Away" data-src="${contextPath}/resources/soundcheck/audio/mp3/yosef_the_soul-run_away.mp3">juicy-r</a></li>
-            </ol>--%>
+            </ol>
         </div>
     </div> <!-- end Audio Player -->
 </div>
@@ -350,7 +350,7 @@
 </section>
 
 <div class="clear"></div>
-<section class="full-wrapper parallax-wrapper contact"> <!-- Contact -->
+<section class="full-wrapper parallax-wrapper registration-band"> <!-- Contact -->
     <div class="parallax" data-velocity="-.3" data-fit="0">
         <div id="anchor03"></div>
         <div class="front-content contact">
@@ -371,7 +371,7 @@
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Желаемая дата</h2>
-                                    <input id="date-band" class="datepicker-here"  data-date-format="yyyy-mm-dd" type="date" name="dateBand"/>
+                                    <input id="date-band" class="datepicker-here"  data-date-format="yyyy-mm-dd" name="dateBand"/>
                                 <div class="form-group">
                                     <div id="date-error" class="has-error"></div>
                                 </div>
@@ -383,7 +383,7 @@
                         <div class="container">
                             <div class="controls name">
                                 <h2>Время(c)</h2>
-                                    <input id="startTime" type="time" name="startTime"/>
+                                    <input id="startTime" name="startTime" class="input-group clockpicker"/>
                                 <div class="form-group">
                                     <div id="start-time" class="has-error"></div>
                                 </div>
@@ -392,7 +392,7 @@
                         <div class="control-group">
                             <div class="controls email">
                                 <h2>Время(до)</h2>
-                                    <input id="endTime" type="time" name="endTime"/>
+                                    <input id="endTime" name="endTime"/>
                                 <div class="form-group">
                                     <div id="end-time" class="has-error"></div>
                                 </div>
@@ -404,9 +404,9 @@
                         <div class="controls view">
                             <h2>Вид деятельности</h2>
                             <select path="comment" id="view" type="text">
-                                <option type="text" value="Репетиция" id="name">Репетиция</option>
-                                <option type="text" value="Запись" id="name">Запись</option>
-                                <option type="text" value="Другое" id="name">Другое</option>
+                                <option type="text" value="Репетиция" style="color: green">Репетиция</option>
+                                <option type="text" value="Запись" style="color: green">Запись</option>
+                                <option type="text" value="Другое" style="color: green">Другое</option>
                             </select>
                         </div>
                     </div>
@@ -684,6 +684,10 @@
         minDate: new Date()
     })
 </script>--%>
+
+<script type="text/javascript">
+    $('.clockpicker').clockpicker();
+</script>
 
 </body>
 </html>
