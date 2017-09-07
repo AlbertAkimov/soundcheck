@@ -1,14 +1,21 @@
 package net.space.dao;
 
 import net.space.model.Band;
-import net.space.utilities.constants.Queries;
+import net.space.model.User;
+import net.space.service.SecurityService;
+import net.space.service.UserService;
+import net.space.utilities.converter.ListConverter;
+import net.space.utilities.date.Queries;
+import net.space.utilities.date.TimeUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author A.Albert
@@ -23,12 +30,22 @@ public class BandDaoImpl implements BandDao {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private SecurityService securityService;
+
     private static final Logger LOGGER = Logger.getLogger(BandDaoImpl.class);
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Loading an object 'Band' into the database
+     * @param band java bean {@link Band} class
+     */
     @Override
     public void addBand(Band band) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -37,6 +54,10 @@ public class BandDaoImpl implements BandDao {
         LOGGER.info("Band successfully saved. Band details: " + band);
     }
 
+    /**
+     * Update the object 'Band' in the database
+     * @param band java bean {@link Band} class
+     */
     @Override
     public void updateBand(Band band) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -45,6 +66,10 @@ public class BandDaoImpl implements BandDao {
         LOGGER.info("Band successfully update. Band details: " + band);
     }
 
+    /**
+     * Remove an object from the database
+     * @param id of object {@link Band} class.
+     */
     @Override
     public void removeBand(int id) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -56,6 +81,11 @@ public class BandDaoImpl implements BandDao {
         LOGGER.info("Band successfully deleted. Band details: " + band);
     }
 
+    /**
+     * Get object 'Band' by id
+     * @param id of object {@link Band} class.
+     * @return java bean {@link Band} class.
+     */
     @Override
     public Band getBandById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
@@ -65,63 +95,62 @@ public class BandDaoImpl implements BandDao {
         return band;
     }
 
+    /**
+     * Get objects with a converted structure and time
+     * @return converted getListObject of objects {@link Band} class.
+     */
     @Override
     @SuppressWarnings("unchecked")
-    public List<List<Band>> listBand() {
-
-        List<List<Band>> lists = new ArrayList<>();
+    public List<List<Band>> lists() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Band> listBand = session.createQuery(Queries.band).list();
 
         LOGGER.info("List band successfully loaded.");
 
-        for(Band band : listBand) { //todo тут убирать милисекунды не приемлемо, нужно найти другое решение.
+        TimeUtils timeUtils = new TimeUtils(listBand);
+        listBand = timeUtils.convertTimeOfList();
 
-            String startTime = band.getStartTime().substring(0,5);
-            String endTime = band.getEndTime().substring(0,5);
-
-            band.setStartTime(startTime);
-            band.setEndTime(endTime);
-
-            LOGGER.info("List Band: " + band);
-        }
-
-        while (!listBand.isEmpty()){
-            List<Band> res = new ArrayList<>();
-
-            if(listBand.size() >= 5) {
-                List<Band> chunck = listBand.subList(0, 5);
-                res.addAll(chunck);
-                lists.add(lists.size(), res);
-                chunck.clear();
-            }
-            else {
-                List<Band> chunck = listBand.subList(0, listBand.size());
-                res.addAll(chunck);
-                lists.add(lists.size(), res);
-                chunck.clear();
-            }
-
-        }
-
-        return lists;
+        return ListConverter.convertContainer(listBand);
     }
 
+    /**
+     * Get a getListObject of objects
+     * @return java bean {@link Band} class.
+     */
     @Override
-    public List<Band> lists() {
+    @SuppressWarnings("unchecked")
+    public List<Band> getListObject() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Band> listBand = session.createQuery(Queries.band).list();
 
-        for(Band band : listBand) {
-            String startTime = band.getStartTime().substring(0,5);
-            String endTime = band.getEndTime().substring(0,5);
+        TimeUtils timeUtils = new TimeUtils(listBand);
 
-            band.setStartTime(startTime);
-            band.setEndTime(endTime);
+        return timeUtils.convertTimeOfList();
+    }
 
-            LOGGER.info("List band: " + band);
+    @Override
+    @SuppressWarnings("unchecked")
+    public List<Band> getPersonalList() {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Band> listBand = session.createQuery(Queries.band).list();
+
+        String userName = this.securityService.findLoggedInUsername();
+
+        if(Objects.equals(userName, "anonymousUser")) {
+            return null;
         }
 
-        return listBand;
+        User loggedUser = userService.findByUsername(userName);
+
+        List<Band> list = new ArrayList<>();
+
+        for(Band band : listBand) {
+            if(loggedUser.getId().equals(band.getUserID()))
+                list.add(band);
+        }
+
+        TimeUtils timeUtils = new TimeUtils(list);
+
+        return timeUtils.convertTimeOfList();
     }
 }

@@ -19,19 +19,6 @@ $(document).ready(function () {
 
 });
 
-/*$(document).ready(function () {
-
-    $("#get-personal").submit(function (event) {
-
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
-
-        get_ajax();
-
-    });
-
-});*/
-
 /*Этот метод получает данные с контроллера и формирует таблицу для определённого юзера и его данных*/
 
 function get_ajax() {
@@ -46,7 +33,7 @@ function get_ajax() {
             $("#testing").html("");
 
             if(data.status === "SUCCESS") {
-                var json = "<table class='table table-condensed'>" +
+                var json = "<table class='table table-bordered table-hover table-striped table-condensed'>" +
                     "<tr>" +
                     "<th width='30'>№</th>" +
                     "<th width='120'>Имя группы</th>" +
@@ -169,7 +156,6 @@ function refresh() {
                             "<div class='front-content dates'>" +
                             "<h1>Время</h1>" +
                             "<div class='spacer'></div>" +
-                            "<p><a href='/fulllist' style='color: orangered'>Подробнее</a></p>" +
                             "<div class='dates-wrapper'>";
 
                 json += "<ul>";

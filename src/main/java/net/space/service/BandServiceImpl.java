@@ -50,17 +50,19 @@ public class BandServiceImpl implements BandService{
 
     @Override
     @Transactional
-    public List<List<Band>> listBand() {
-        return this.bandDao.listBand();
+    public List<List<Band>> lists() {
+        return this.bandDao.lists();
     }
 
     @Override
     @Transactional
-    public List<Band> lists() {
-        return this.bandDao.lists();
+    public List<Band> getListObject() {
+        return this.bandDao.getListObject();
     }
 
-/*    public void setBandDao(BandDaoImpl bandDao) {
-        this.bandDao = bandDao;
-    }*/
+    @Override
+    @Transactional
+    public List<Band> getPersonalList() {
+        return this.bandDao.getPersonalList();
+    }
 }

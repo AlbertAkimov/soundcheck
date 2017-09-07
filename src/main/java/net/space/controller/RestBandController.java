@@ -5,7 +5,7 @@ import net.space.model.User;
 import net.space.service.BandService;
 import net.space.service.SecurityServiceImpl;
 import net.space.service.UserServiceImpl;
-import net.space.utilities.constants.BandDateUtils;
+import net.space.utilities.date.BandDateUtils;
 import net.space.utilities.message.errors.MessageErrors;
 import net.space.validators.BandValidator;
 import net.space.validators.json.JsonResponse;
@@ -83,30 +83,23 @@ public class RestBandController {
     @GetMapping(value = "/personal-list", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody ResponseEntity<?> getPersonalList() {
 
-        List<Band> listBand = this.service.lists();
-
-        String userName = this.securityService.findLoggedInUsername();
+        List<Band> listBand = this.service.getPersonalList();
         JsonResponse jr = new JsonResponse();
 
-        if(Objects.equals(userName, "anonymousUser")) {
+        if(listBand == null) {
             jr.setStatus("FAIL");
             jr.setResult(MessageErrors.ERROR_AUTHORIZATION);
-
-            return ResponseEntity.ok(jr);
         }
 
-        User loggedUser = this.userService.findByUsername(userName);
-        List<Band> result = new ArrayList<>();
+        else if (listBand.isEmpty()) {
+            jr.setStatus("FAIL");
+            jr.setResult(MessageErrors.EMPTY_LIST_OBJECT);
+        }
 
-
-            for(Band band : listBand) {
-                if (loggedUser.getId().equals(band.getUserID())) {
-                    result.add(band);
-                }
-            }
-
-        jr.setStatus("SUCCESS");
-        jr.setResult(result);
+        else {
+            jr.setStatus("SUCCESS");
+            jr.setResult(listBand);
+        }
 
         return ResponseEntity.ok(jr);
     }
@@ -114,7 +107,7 @@ public class RestBandController {
     @GetMapping(value = "/refresh", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public @ResponseBody ResponseEntity<?> refreshData() {
 
-        List<List<Band>> lists = this.service.listBand();
+        List<List<Band>> lists = this.service.lists();
         JsonResponse jr = new JsonResponse();
 
         if(!lists.isEmpty()) {

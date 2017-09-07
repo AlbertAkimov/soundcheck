@@ -183,7 +183,7 @@
 <div id="anchor01"></div>
 <div class="main-wrapper">
     <section class="section"><!-- Last News -->
-        <h1>Last News</h1>
+        <h1>Новости</h1>
         <div class="spacer"></div>
         <div class="last-news-wrapper">
             <div class="last-news-container">
@@ -298,7 +298,7 @@
         <div class="front-content dates">
             <h1>Время</h1>
             <div class="spacer"></div>
-                <p><a href="${contextPath}/fulllist" style="color: orangered">Подробнее</a></p>
+<%--                <p><a href="${contextPath}/list" style="color: orangered">Подробнее</a></p>--%>
             <div class="dates-wrapper">
                 <ul>
                     <c:if test="${!empty listBand}">
@@ -433,7 +433,7 @@
 
 <div id="anchor04"></div>
 <section class="full-wrapper portfolio"> <!-- Gallery Portfolio -->
-    <h1>Gallery</h1>
+    <h1>Галерея</h1>
     <div class="spacer"></div>
 
     <div id="portfolio">
@@ -614,7 +614,7 @@
 <div class="clear"></div>
 
 <section class="social-footer">
-    <h1>Social Networks</h1>
+    <h1>Соц. Сети</h1>
     <div class="spacer"></div>
     <div class="footer-container">
         <div class="social-ico s-facebook"></div>

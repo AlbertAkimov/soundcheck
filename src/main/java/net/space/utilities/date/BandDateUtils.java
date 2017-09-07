@@ -1,7 +1,6 @@
-package net.space.utilities.constants;
+package net.space.utilities.date;
 
 import net.space.model.Band;
-import org.junit.Assert;
 
 import java.util.Date;
 

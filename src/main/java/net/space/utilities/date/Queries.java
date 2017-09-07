@@ -1,4 +1,4 @@
-package net.space.utilities.constants;
+package net.space.utilities.date;
 
 /**
  * @Author A.Albert

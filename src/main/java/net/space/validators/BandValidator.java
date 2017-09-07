@@ -34,7 +34,7 @@ public class BandValidator implements Validator {
 
         Band band = (Band) target;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        List<List<Band>> lists = bandService.listBand();
+        List<List<Band>> lists = bandService.lists();
 
         for (List<Band> bands : lists) {
             for(Band iBand : bands) {

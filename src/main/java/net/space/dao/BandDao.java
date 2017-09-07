@@ -22,7 +22,9 @@ public interface BandDao {
 
     public Band getBandById(int id);
 
-    public List<List<Band>> listBand();
+    public List<List<Band>> lists();
 
-    public List<Band> lists();
+    public List<Band> getListObject();
+
+    public List<Band> getPersonalList();
 }

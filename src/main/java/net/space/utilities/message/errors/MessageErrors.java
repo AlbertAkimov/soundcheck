@@ -11,4 +11,6 @@ package net.space.utilities.message.errors;
 public class MessageErrors {
 
     public static final String ERROR_AUTHORIZATION = "Вы не авторизованны в системы";
+
+    public static final String  EMPTY_LIST_OBJECT = "У Вас нет активных услуг SoundCheck";
 }

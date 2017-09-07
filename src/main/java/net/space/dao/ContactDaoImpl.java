@@ -1,7 +1,7 @@
 package net.space.dao;
 
 import net.space.model.Contact;
-import net.space.utilities.constants.Queries;
+import net.space.utilities.date.Queries;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
