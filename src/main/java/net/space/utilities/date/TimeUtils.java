@@ -1,7 +1,6 @@
 package net.space.utilities.date;
 
 import net.space.model.Band;
-import org.apache.log4j.Logger;
 
 import java.util.List;
 
@@ -14,8 +13,6 @@ import java.util.List;
  */
 
 public class TimeUtils {
-
-    private static final Logger LOGGER = Logger.getLogger(TimeUtils.class);
 
     private List<Band> bands;
 

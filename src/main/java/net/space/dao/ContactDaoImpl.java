@@ -2,9 +2,10 @@ package net.space.dao;
 
 import net.space.model.Contact;
 import net.space.utilities.date.Queries;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
 @Repository
 public class ContactDaoImpl implements ContactDao {
 
-    private static final Logger LOGGER = Logger.getLogger(ContactDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContactDaoImpl.class);
 
     private SessionFactory sessionFactory;
 

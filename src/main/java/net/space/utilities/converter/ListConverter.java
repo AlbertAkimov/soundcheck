@@ -1,7 +1,8 @@
 package net.space.utilities.converter;
 
 import net.space.model.Band;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ListConverter {
 
-    private static final Logger LOGGER = Logger.getLogger(ListConverter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ListConverter.class);
 
     @SuppressWarnings("unchecked")
     public static List<List<Band>> convertContainer(List<Band> list) {

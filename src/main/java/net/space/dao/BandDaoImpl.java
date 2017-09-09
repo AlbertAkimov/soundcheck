@@ -7,9 +7,10 @@ import net.space.service.UserService;
 import net.space.utilities.converter.ListConverter;
 import net.space.utilities.date.Queries;
 import net.space.utilities.date.TimeUtils;
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -36,7 +37,7 @@ public class BandDaoImpl implements BandDao {
     @Autowired
     private SecurityService securityService;
 
-    private static final Logger LOGGER = Logger.getLogger(BandDaoImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BandDaoImpl.class);
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
