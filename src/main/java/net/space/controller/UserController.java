@@ -56,11 +56,11 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null) {
-            model.addAttribute("error", "Неправельное имя пользователя или пароль.");
+            model.addAttribute("error", "password or username incorrect");
         }
 
         if (logout != null) {
-            model.addAttribute("message", "Вы вышли из своей учётной записи");
+            model.addAttribute("message", "logout successfully");
         }
 
         return "login";

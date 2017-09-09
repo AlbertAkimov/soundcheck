@@ -33,8 +33,8 @@ public class ContactValidator implements Validator {
 
         Contact contact = (Contact) target;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nameAuthor", "Поле обязательно для заплнения");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Поле обязательно для заплнения");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "message", "Поле обязательно для заплнения");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nameAuthor", "Required field");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required field");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "message", "Required field");
     }
 }
