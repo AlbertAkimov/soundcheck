@@ -7,8 +7,7 @@ import net.space.service.SecurityServiceImpl;
 import net.space.service.UserServiceImpl;
 import net.space.utilities.EmailAddress;
 import net.space.validators.json.JsonResponse;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
@@ -33,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ContactController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ContactController.class);
+    private static final Logger LOGGER = Logger.getLogger(ContactController.class);
 
     private JavaMailSender mailSender;
 
